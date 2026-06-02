@@ -20,7 +20,7 @@
 
 <!-- ApexCharts -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --night: #050C1A; --deep: #070D1F; --royal: #1A2E8A;
@@ -38,7 +38,7 @@
   html { scroll-behavior: auto; } /* Lenis handles smooth scroll */
   body {
     background: var(--deep); color: var(--soft);
-    font-family: 'DM Sans', sans-serif; font-size: clamp(15px, 1.5vw, 17px);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(15px, 1.5vw, 17px);
     line-height: 1.7; overflow-x: hidden;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   }
@@ -92,7 +92,7 @@
   .section-label { font-size: clamp(10px, 1vw, 11px); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bright); margin-bottom: 20px; display: block; }
   .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
   .section-title span { background: linear-gradient(135deg, #4A7FFF, #B8CCF0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .section-intro { font-size: clamp(16px, 1.5vw, 18px); font-weight: 300; color: var(--ice); max-width: 60ch; line-height: 1.7; }
+  .section-intro { font-size: clamp(16px, 1.5vw, 18px); font-weight: 400; color: var(--ice); max-width: 60ch; line-height: 1.7; }
   /* ── FOCUS STATES (acessibilidade) ───────────────── */
   :focus-visible { outline: 2px solid var(--bright); outline-offset: 3px; border-radius: 4px; }
   button:focus-visible, a:focus-visible { outline: 2px solid var(--bright); outline-offset: 3px; }
@@ -122,12 +122,12 @@
   }
   .hero-headline span { background: linear-gradient(135deg, #4A7FFF 0%, #B8CCF0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .hero-sub {
-    font-size: clamp(15px, 1.6vw, 18px); font-weight: 300; color: var(--ice);
+    font-size: clamp(15px, 1.6vw, 18px); font-weight: 400; color: var(--ice);
     max-width: 52ch; margin: 0 auto 14px; line-height: 1.65;
     animation: fadeUp 0.8s 0.25s ease both; letter-spacing: 0.01em;
   }
   .hero-value {
-    font-family: 'Playfair Display', serif; font-style: italic;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400;
     font-size: clamp(14px, 1.3vw, 16px); color: var(--muted);
     margin-bottom: 40px; animation: fadeUp 0.8s 0.35s ease both;
   }
@@ -161,7 +161,7 @@
   #diagnostico { background: var(--deep); }
   .belief-breaker { background: rgba(74,127,255,0.05); border: 1px solid rgba(74,127,255,0.15); border-radius: 16px; padding: 36px 44px; margin-bottom: 64px; position: relative; overflow: hidden; }
   .belief-breaker::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--bright), var(--electric)); border-radius: 4px 0 0 4px; }
-  .belief-breaker p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--white); line-height: 1.5; }
+  .belief-breaker p { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(16px, 1.6vw, 19px); color: var(--soft); line-height: 1.7; }
   .belief-breaker strong { color: var(--bright); font-style: normal; }
   .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 64px; }
   .stat-card { background: var(--card); border: 1px solid rgba(74,127,255,0.1); border-radius: 20px; padding: clamp(24px, 3vw, 40px); transition: all 0.3s var(--ease-out); position: relative; overflow: hidden; }
@@ -185,9 +185,9 @@
   .chart-bar-fill.dead { background: linear-gradient(90deg, #0a1240, #0f1e5a); }
   .chart-value { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: var(--ice); text-align: left; }
   .speed-block { background: rgba(74,127,255,0.04); border: 1px solid rgba(74,127,255,0.12); border-radius: 16px; padding: 40px 44px; margin-bottom: 40px; }
-  .speed-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: var(--soft); line-height: 1.7; margin-bottom: 24px; }
-  .speed-strong { font-family: 'Syne', sans-serif; font-style: normal; font-weight: 800; font-size: 22px; color: var(--white); display: block; line-height: 1.4; }
-  .anchor-phrase { text-align: center; padding: 48px 24px; }
+  .speed-quote { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(15px, 1.5vw, 17px); color: var(--ice); line-height: 1.75; margin-bottom: 28px; }
+  .speed-strong { font-family: 'Syne', sans-serif; font-style: normal; font-weight: 700; font-size: clamp(18px, 2vw, 22px); color: var(--white); display: block; line-height: 1.45; letter-spacing: -0.01em; }
+  .anchor-phrase { text-align: center; padding: 24px 24px; }
   .anchor-phrase p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(22px, 3vw, 32px); color: var(--ice); line-height: 1.5; max-width: 720px; margin: 0 auto; }
   /* ── SEÇÃO 02 — A VIRADA (flip 3D) ──────────────── */
   #virada { background: linear-gradient(180deg, var(--deep) 0%, #090f22 100%); }
@@ -196,7 +196,7 @@
   .vtoggle-btn {
     display: flex; align-items: center; gap: 8px;
     padding: 11px 28px; border-radius: 100px;
-    font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px;
     cursor: pointer; border: 1px solid rgba(255,255,255,0.08);
     transition: all 0.3s var(--ease-out);
     background: rgba(255,255,255,0.04); color: var(--muted);
@@ -334,7 +334,7 @@
   .step-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
   .funnel-rule { background: linear-gradient(135deg, rgba(74,127,255,0.1), rgba(42,77,181,0.1)); border: 1px solid rgba(74,127,255,0.25); border-radius: 16px; padding: 28px 36px; margin-top: 32px; display: flex; align-items: center; gap: 20px; }
   .funnel-rule-icon { font-size: 24px; flex-shrink: 0; }
-  .funnel-rule p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: var(--white); line-height: 1.5; }
+  .funnel-rule p { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(14px, 1.4vw, 16px); color: var(--soft); line-height: 1.65; }
   /* ── SECTION 6 — Stacked Cards ──────────────────── */
   #ciencia { background: var(--deep); }
 
@@ -402,7 +402,7 @@
   /* SECTION 7 */
   #investimento { background: linear-gradient(180deg, var(--deep) 0%, #050c1a 100%); }
   .roi-intro { background: rgba(74,127,255,0.05); border: 1px solid rgba(74,127,255,0.15); border-radius: 16px; padding: 36px 44px; margin-bottom: 56px; }
-  .roi-intro p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--white); line-height: 1.6; }
+  .roi-intro p { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(15px, 1.5vw, 17px); color: var(--ice); line-height: 1.75; }
   .roi-intro strong { font-style: normal; color: var(--bright); }
   .calculator { background: var(--card); border: 1px solid rgba(74,127,255,0.15); border-radius: 24px; padding: 52px; margin-bottom: 48px; position: relative; overflow: hidden; }
   .calculator::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--bright), var(--electric), var(--royal)); }
@@ -419,6 +419,45 @@
   .calc-field input { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(74,127,255,0.2); border-radius: 10px; padding: 14px 18px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 22px; color: var(--white); outline: none; transition: border-color 0.2s; -moz-appearance: textfield; }
   .calc-field input::-webkit-outer-spin-button, .calc-field input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
   .calc-field input:focus { border-color: rgba(74,127,255,0.5); }
+  .calc-divider { display: flex; align-items: center; gap: 16px; margin: 8px 0 24px; }
+  .calc-divider::before, .calc-divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+  .calc-divider span { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; }
+  .calc-inputs-secondary { grid-template-columns: repeat(2, 1fr) !important; max-width: 520px; }
+
+  /* ── Tabs das calculadoras ──────────────────────── */
+  .calc-tabs { display: flex; gap: 8px; margin-bottom: 24px; background: var(--card); border: 1px solid rgba(74,127,255,0.12); border-radius: 14px; padding: 6px; }
+  .calc-tab {
+    flex: 1; padding: 12px 20px; border-radius: 10px; cursor: pointer;
+    border: none; background: transparent; color: var(--muted);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 14px;
+    transition: all 0.25s var(--ease-out); line-height: 1.4; text-align: center;
+  }
+  .calc-tab.active {
+    background: linear-gradient(135deg, #3D6FE8, #2A4DB5);
+    color: var(--white); box-shadow: 0 4px 16px rgba(74,127,255,0.3);
+  }
+  .calc-panel { display: none; }
+  .calc-panel.active { display: block; animation: fadeIn 0.3s ease; }
+  .calculator.calc-atual::before { background: linear-gradient(90deg, #6B7FA3, #4A5F80, #2A3A5A); }
+  .calculator.calc-atual .calc-result-item { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.07); }
+  .calculator.calc-atual .calc-result-value { background: linear-gradient(135deg, #8BA0C8, #C8D8F0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  @media (max-width: 767px) { .calc-tab { font-size: 12px; padding: 10px 12px; } }
+  .calc-total {
+    background: linear-gradient(135deg, rgba(74,127,255,0.12), rgba(42,77,181,0.1));
+    border: 1px solid rgba(74,127,255,0.3);
+    border-radius: 20px; padding: 32px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; margin-bottom: 48px;
+  }
+  .calc-total-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .calc-total-value { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(28px, 3.5vw, 44px); letter-spacing: -0.03em; background: linear-gradient(135deg, #4A7FFF, #B8CCF0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+  .calc-total-tag { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  .calc-total-arrow { font-size: 28px; color: rgba(74,127,255,0.4); flex-shrink: 0; }
+  @media (max-width: 767px) {
+    .calc-duo { grid-template-columns: 1fr; }
+    .calc-total { flex-direction: column; text-align: center; padding: 24px; }
+    .calc-total-arrow { display: none; }
+  }
   .calc-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.06); }
   .calc-result-item { text-align: center; padding: 28px 20px; background: rgba(74,127,255,0.04); border: 1px solid rgba(74,127,255,0.1); border-radius: 14px; }
   .calc-result-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
@@ -435,7 +474,7 @@
   .price-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ice); line-height: 1.5; }
   .price-item::before { content: '✓'; color: var(--bright); font-weight: 700; font-size: 13px; flex-shrink: 0; padding-top: 2px; }
   .roi-equation { background: linear-gradient(135deg, rgba(74,127,255,0.1), rgba(42,77,181,0.08)); border: 1px solid rgba(74,127,255,0.2); border-radius: 16px; padding: 36px 44px; }
-  .roi-equation p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: var(--white); line-height: 1.7; }
+  .roi-equation p { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(15px, 1.5vw, 17px); color: var(--ice); line-height: 1.75; }
   .roi-equation strong { font-style: normal; color: var(--bright); }
   /* SECTION 8 */
   #cta { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: var(--night); }
@@ -443,7 +482,7 @@
   .cta-content { position: relative; z-index: 2; max-width: 720px; padding: 120px 40px; }
   .cta-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--bright); margin-bottom: 28px; display: block; font-weight: 500; }
   .cta-headline { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); letter-spacing: -2px; line-height: 1.1; color: var(--white); margin-bottom: 24px; }
-  .cta-question { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--ice); margin-bottom: 52px; line-height: 1.5; }
+  .cta-question { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(16px, 1.6vw, 19px); color: var(--ice); margin-bottom: 44px; line-height: 1.65; }
   .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .btn-cta-main {
     background: linear-gradient(135deg, #3D6FE8, #2A4DB5); color: var(--white);
@@ -458,7 +497,7 @@
   .btn-cta-sub { color: var(--muted); font-size: 14px; text-decoration: none; cursor: pointer; transition: color 0.2s; background: none; border: none; display: inline-block; font-family: inherit; }
   .btn-cta-sub:hover { color: var(--ice); }
   .cta-closer { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.06); }
-  .cta-closer p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--muted); line-height: 1.6; max-width: 560px; margin: 0 auto; }
+  .cta-closer p { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 400; font-size: clamp(14px, 1.4vw, 16px); color: var(--muted); line-height: 1.7; max-width: 560px; margin: 0 auto; }
   footer { background: var(--night); border-top: 1px solid rgba(255,255,255,0.05); padding: 40px; text-align: center; }
   footer p { font-size: 13px; color: var(--muted); }
   .reveal { opacity: 1; } /* GSAP controla a animação — sem estado invisível no CSS */
@@ -915,36 +954,113 @@
     <div class="roi-intro reveal" style="margin-top: 56px;">
       <p>Um único paciente de implante fechado pelo sistema já <strong>representa entre R$ 3.000 e R$ 8.000 em receita</strong>. Faça a conta com os seus números:</p>
     </div>
-    <div class="calculator reveal">
-      <h3 class="calc-title">Calculadora de ROI</h3>
-      <p class="calc-sub">Insira os números reais da sua clínica para ver o impacto.</p>
-      <div class="calc-inputs">
-        <div class="calc-field">
-          <label>Leads por mês</label>
-          <div class="calc-input-wrapper"><input type="number" id="calc-leads" value="100" min="0"></div>
+    <!-- Tabs -->
+    <div class="calc-tabs reveal">
+      <button type="button" class="calc-tab active" data-calc="atual">Secretária Virtual</button>
+      <button type="button" class="calc-tab" data-calc="followup">Follow-up no CRM</button>
+    </div>
+
+    <!-- Painel 1: Atendimento Atual -->
+    <div class="calc-panel active" id="panel-atual">
+      <div class="calculator calc-atual reveal">
+        <h3 class="calc-title">Secretária Virtual</h3>
+        <p class="calc-sub">Quanto a IA fecha no primeiro contato, 24h por dia.</p>
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label>Leads por mês</label>
+            <div class="calc-input-wrapper"><input type="number" id="calc-leads" value="100" min="0"></div>
+          </div>
+          <div class="calc-field">
+            <label>% que agenda hoje</label>
+            <div class="calc-input-wrapper has-suffix"><input type="number" id="calc-agenda" value="20" min="0" max="100"><span class="suffix">%</span></div>
+          </div>
+          <div class="calc-field">
+            <label>Ticket médio (R$)</label>
+            <div class="calc-input-wrapper has-prefix"><span class="prefix">R$</span><input type="number" id="calc-ticket" value="3000" min="0"></div>
+          </div>
         </div>
-        <div class="calc-field">
-          <label>% que NÃO agenda hoje</label>
-          <div class="calc-input-wrapper has-suffix"><input type="number" id="calc-perc" value="80" min="0" max="100"><span class="suffix">%</span></div>
-        </div>
-        <div class="calc-field">
-          <label>Ticket médio (R$)</label>
-          <div class="calc-input-wrapper has-prefix"><span class="prefix">R$</span><input type="number" id="calc-ticket" value="3000" min="0"></div>
+        <div class="calc-results">
+          <div class="calc-result-item">
+            <div class="calc-result-label">Clientes/mês</div>
+            <div class="calc-result-value" id="result-atual-clients">0</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-label">Receita/mês</div>
+            <div class="calc-result-value" id="result-atual-monthly">R$ 0</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-label">Receita/ano</div>
+            <div class="calc-result-value" id="result-atual-yearly">R$ 0</div>
+          </div>
         </div>
       </div>
-      <div class="calc-results">
-        <div class="calc-result-item">
-          <div class="calc-result-label">Recuperação por mês</div>
-          <div class="calc-result-value" id="result-monthly">R$ 0</div>
+    </div>
+
+    <!-- Painel 2: Secretária Virtual / Follow-up -->
+    <div class="calc-panel" id="panel-followup">
+      <div class="calculator reveal">
+        <h3 class="calc-title">Follow-up no CRM</h3>
+        <p class="calc-sub">Quanto a automação recupera dos leads que não agendaram.</p>
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label>Leads por mês</label>
+            <div class="calc-input-wrapper"><input type="number" id="calc-leads2" value="100" min="0"></div>
+          </div>
+          <div class="calc-field">
+            <label>% que NÃO agenda</label>
+            <div class="calc-input-wrapper has-suffix"><input type="number" id="calc-perc" value="80" min="0" max="100"><span class="suffix">%</span></div>
+          </div>
+          <div class="calc-field">
+            <label>Ticket médio (R$)</label>
+            <div class="calc-input-wrapper has-prefix"><span class="prefix">R$</span><input type="number" id="calc-ticket2" value="3000" min="0"></div>
+          </div>
         </div>
-        <div class="calc-result-item">
-          <div class="calc-result-label">Recuperação por ano</div>
-          <div class="calc-result-value" id="result-yearly">R$ 0</div>
+        <div class="calc-divider"><span>Parâmetros do sistema — ajuste conforme sua realidade</span></div>
+        <div class="calc-inputs calc-inputs-secondary" style="max-width:100%">
+          <div class="calc-field">
+            <label>Taxa de recuperação</label>
+            <div class="calc-input-wrapper has-suffix"><input type="number" id="calc-recovery" value="10" min="1" max="100"><span class="suffix">%</span></div>
+          </div>
+          <div class="calc-field">
+            <label>Taxa de fechamento</label>
+            <div class="calc-input-wrapper has-suffix"><input type="number" id="calc-close" value="30" min="1" max="100"><span class="suffix">%</span></div>
+          </div>
         </div>
-        <div class="calc-result-item">
-          <div class="calc-result-label">Sistema se paga em</div>
-          <div class="calc-result-value" id="result-payback">— meses</div>
+        <div class="calc-results">
+          <div class="calc-result-item">
+            <div class="calc-result-label">Recuperação/mês</div>
+            <div class="calc-result-value" id="result-monthly">R$ 0</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-label">Recuperação/ano</div>
+            <div class="calc-result-value" id="result-yearly">R$ 0</div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-label">Se paga em</div>
+            <div class="calc-result-value" id="result-payback">—</div>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Total combinado -->
+    <div class="calc-total reveal">
+      <div>
+        <div class="calc-total-label">Receita atual</div>
+        <div class="calc-total-value" id="total-atual">R$ 0</div>
+        <div class="calc-total-tag">atendimento hoje</div>
+      </div>
+      <div class="calc-total-arrow">+</div>
+      <div>
+        <div class="calc-total-label">Potencial com Clinix</div>
+        <div class="calc-total-value" id="total-followup">R$ 0</div>
+        <div class="calc-total-tag">follow-up recuperado</div>
+      </div>
+      <div class="calc-total-arrow">=</div>
+      <div>
+        <div class="calc-total-label">Total mensal</div>
+        <div class="calc-total-value" id="total-combined">R$ 0</div>
+        <div class="calc-total-tag">receita combinada</div>
       </div>
     </div>
     <div class="pricing-grid">
@@ -1255,37 +1371,77 @@
     });
   });
 
-  const calcLeads = document.getElementById('calc-leads');
-  const calcPerc = document.getElementById('calc-perc');
-  const calcTicket = document.getElementById('calc-ticket');
-  const resultMonthly = document.getElementById('result-monthly');
-  const resultYearly = document.getElementById('result-yearly');
-  const resultPayback = document.getElementById('result-payback');
-
-  function formatBRL(value) {
-    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
+  function formatBRL(v) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(v);
   }
 
-  function calcROI() {
-    const leads = parseFloat(calcLeads.value) || 0;
-    const perc = parseFloat(calcPerc.value) || 0;
-    const ticket = parseFloat(calcTicket.value) || 0;
-    const lost = leads * (perc / 100);
-    const monthly = lost * 0.10 * 0.30 * ticket;
-    const yearly = monthly * 12;
-    const initialInvestment = 16000;
-    const monthlyOperation = 1065.58;
+  // ─── TABS das calculadoras ────────────────────────────────────────────────
+  document.querySelectorAll('.calc-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.calc).classList.add('active');
+    });
+  });
+
+  // ─── Calculadora 1: Atendimento Atual ────────────────────────────────────
+  function calcAtual() {
+    const leads  = parseFloat(document.getElementById('calc-leads').value)  || 0;
+    const agenda = parseFloat(document.getElementById('calc-agenda').value) / 100 || 0;
+    const ticket = parseFloat(document.getElementById('calc-ticket').value) || 0;
+    const clients = leads * agenda;
+    const monthly = clients * ticket;
+    document.getElementById('result-atual-clients').textContent = Math.round(clients);
+    document.getElementById('result-atual-monthly').textContent = formatBRL(monthly);
+    document.getElementById('result-atual-yearly').textContent  = formatBRL(monthly * 12);
+    document.getElementById('total-atual').textContent = formatBRL(monthly);
+    updateTotal();
+  }
+
+  // ─── Calculadora 2: Secretária Virtual / Follow-up ───────────────────────
+  function calcFollowup() {
+    const leads    = parseFloat(document.getElementById('calc-leads2').value)    || 0;
+    const perc     = parseFloat(document.getElementById('calc-perc').value)      / 100 || 0;
+    const ticket   = parseFloat(document.getElementById('calc-ticket2').value)   || 0;
+    const recovery = parseFloat(document.getElementById('calc-recovery').value)  / 100 || 0.10;
+    const close    = parseFloat(document.getElementById('calc-close').value)     / 100 || 0.30;
+    const lost     = leads * perc;
+    const monthly  = lost * recovery * close * ticket;
+    const INVEST = 16000, OPEX = 1065.58;
     let payback = '—';
-    if (monthly > monthlyOperation) {
-      const months = initialInvestment / (monthly - monthlyOperation);
-      payback = months < 1 ? '<1 mês' : months < 24 ? Math.ceil(months) + ' meses' : '24+ meses';
+    if (monthly > OPEX) {
+      const m = INVEST / (monthly - OPEX);
+      payback = m < 1 ? '<1 mês' : m < 24 ? Math.ceil(m) + ' meses' : '24+ meses';
     }
-    resultMonthly.textContent = formatBRL(monthly);
-    resultYearly.textContent = formatBRL(yearly);
-    resultPayback.textContent = payback;
+    document.getElementById('result-monthly').textContent = formatBRL(monthly);
+    document.getElementById('result-yearly').textContent  = formatBRL(monthly * 12);
+    document.getElementById('result-payback').textContent = payback;
+    document.getElementById('total-followup').textContent = formatBRL(monthly);
+    updateTotal();
   }
-  [calcLeads, calcPerc, calcTicket].forEach(el => el.addEventListener('input', calcROI));
-  calcROI();
+
+  function updateTotal() {
+    const a = parseFloat(document.getElementById('calc-leads').value || 0)
+              * (parseFloat(document.getElementById('calc-agenda').value || 0) / 100)
+              * parseFloat(document.getElementById('calc-ticket').value || 0);
+    const f = parseFloat(document.getElementById('calc-leads2').value || 0)
+              * (parseFloat(document.getElementById('calc-perc').value || 0) / 100)
+              * (parseFloat(document.getElementById('calc-recovery').value || 0) / 100)
+              * (parseFloat(document.getElementById('calc-close').value || 0) / 100)
+              * parseFloat(document.getElementById('calc-ticket2').value || 0);
+    document.getElementById('total-combined').textContent = formatBRL(a + f);
+  }
+
+  ['calc-leads','calc-agenda','calc-ticket'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcAtual);
+  });
+  ['calc-leads2','calc-perc','calc-ticket2','calc-recovery','calc-close'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcFollowup);
+  });
+
+  calcAtual();
+  calcFollowup();
 
   // ─── SMART NAVBAR ────────────────────────────────────────────────────────
   const nav = document.querySelector('nav');

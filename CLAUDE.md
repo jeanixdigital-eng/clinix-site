@@ -29,7 +29,7 @@ Objetivo: converter visitantes em leads qualificados via anúncios (Meta, TikTok
 ## Fontes Atuais
 - **Syne** (400/600/700/800) — títulos e headlines
 - **Playfair Display** (serif, itálico) — frases de destaque e citações
-- **Inter** (400/500/600) — corpo do texto (projetada para telas, peso mínimo 400)
+- **Plus Jakarta Sans** (400/500/600) — corpo do texto (peso mínimo 400, nunca usar 300 em fundo escuro)
 
 ## Seções do Site
 1. Hero — headline principal + CTA
