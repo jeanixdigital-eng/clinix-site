@@ -326,6 +326,15 @@
     border-radius: 12px; padding: 20px; font-size: 13px; color: var(--ice); line-height: 1.6;
   }
   .component-card.hero-card .component-highlight strong { color: var(--bright); font-weight: 600; display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  /* ── Secretária Virtual — métricas e pills ── */
+  .karen-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 10px; }
+  .karen-metric { background: rgba(74,127,255,0.06); border: 1px solid rgba(74,127,255,0.12); border-radius: 10px; padding: 12px 14px; }
+  .karen-metric-val { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; color: var(--white); letter-spacing: -0.02em; line-height: 1; display: block; margin-bottom: 3px; }
+  .karen-metric-label { font-size: 11px; color: var(--muted); }
+  .karen-specialists { background: rgba(74,127,255,0.06); border: 1px solid rgba(74,127,255,0.12); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+  .karen-spec-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bright); margin-bottom: 10px; display: block; }
+  .karen-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .karen-pill { background: rgba(74,127,255,0.08); border: 1px solid rgba(74,127,255,0.18); border-radius: 100px; padding: 4px 10px; font-size: 12px; color: var(--ice); font-weight: 500; white-space: nowrap; }
   .component-card { background: var(--card); border: 1px solid rgba(74,127,255,0.1); border-radius: 20px; padding: clamp(22px, 2.5vw, 32px); transition: all 0.35s var(--ease-out); position: relative; overflow: hidden; }
   .component-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--bright), transparent); opacity: 0; transition: opacity 0.35s; }
   .component-card:hover { border-color: rgba(74,127,255,0.3); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(74,127,255,0.1); }
@@ -798,13 +807,35 @@
           <div class="component-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
           <h3 class="component-name">IA Secretária Virtual — Atendimento 24/7</h3>
           <span class="component-problem">Leads sem resposta fora do horário</span>
-          <p class="component-delivers">13 agentes especializados que respondem todo lead em segundos — domingo às 23h ou segunda-feira de manhã. Interpreta texto, áudio, imagem e PDF.</p>
+          <p class="component-delivers">Primeira linha de atendimento do funil. Recepciona o paciente, identifica a dor, quebra objeções e conduz ao agendamento — sem fila, sem horário de expediente. Pacientes respondidos em até 5 minutos têm até 100x mais chance de conversão.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <div class="component-highlight"><strong>Agentes</strong>13 agentes especializados em tratamentos odontológicos</div>
-          <div class="component-highlight"><strong>O que faz</strong>Saudação · Classificador · Agendamento + 9 especialistas por tratamento</div>
-          <div class="component-highlight"><strong>Canais</strong>WhatsApp · Instagram · Formulário · 24h por dia · 7 dias por semana</div>
+          <div class="karen-metrics">
+            <div class="karen-metric"><span class="karen-metric-val">24h</span><span class="karen-metric-label">por dia, 365 dias</span></div>
+            <div class="karen-metric"><span class="karen-metric-val">≤5min</span><span class="karen-metric-label">de resposta</span></div>
+            <div class="karen-metric"><span class="karen-metric-val">100x</span><span class="karen-metric-label">mais conversão</span></div>
+            <div class="karen-metric"><span class="karen-metric-val">13</span><span class="karen-metric-label">agentes especialistas</span></div>
+          </div>
+          <div class="karen-specialists">
+            <span class="karen-spec-label">Especialidades atendidas</span>
+            <div class="karen-pills">
+              <span class="karen-pill">Saudação</span>
+              <span class="karen-pill">Classificador</span>
+              <span class="karen-pill">Agendamento</span>
+              <span class="karen-pill">Implante</span>
+              <span class="karen-pill">Ortodontia</span>
+              <span class="karen-pill">Próteses</span>
+              <span class="karen-pill">Facetas</span>
+              <span class="karen-pill">Restauração</span>
+              <span class="karen-pill">Endodontia</span>
+              <span class="karen-pill">Clareamento</span>
+              <span class="karen-pill">Harmonização</span>
+              <span class="karen-pill">Limpeza</span>
+              <span class="karen-pill">Extração</span>
+            </div>
+          </div>
           <div class="component-highlight"><strong>Interpreta</strong>Texto · Áudio · Imagem · PDF — em segundos</div>
+          <div class="component-highlight"><strong>Canais</strong>WhatsApp · Instagram · Formulário · 24h · 7 dias</div>
         </div>
       </div>
       <!-- Card col 3, linha 1 -->
