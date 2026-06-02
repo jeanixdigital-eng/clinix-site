@@ -20,8 +20,8 @@ Micro:    clamp(10px, 0.8vw, 12px) — badges, tags
 ### Combinações de fonte do CLINIX_SITE
 - **Syne 800** + letter-spacing -0.03em = headlines de impacto máximo
 - **Playfair Display italic** = citações, frases de destaque, elementos poéticos
-- **DM Sans 300/400** = corpo de texto longo (alta legibilidade)
-- **DM Sans 600** = labels uppercase com letter-spacing 0.15em
+- **Plus Jakarta Sans 400/500** = corpo de texto longo (alta legibilidade) — peso mínimo 400
+- **Plus Jakarta Sans 600** = labels uppercase com letter-spacing 0.15em
 
 ### Regras absolutas de tipografia
 - Nunca misturar mais de 2 famílias de fonte em uma seção

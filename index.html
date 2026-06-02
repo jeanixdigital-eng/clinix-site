@@ -4,6 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clinix System — O Coração Operacional da Sua Clínica Odontológica</title>
+<meta name="description" content="O Clinix System automatiza o atendimento e follow-up da sua clínica odontológica com IA. Resposta em segundos, 24h por dia. Agende mais sem contratar mais.">
+<link rel="canonical" href="https://clinixsystem.com.br/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clinixsystem.com.br/">
+<meta property="og:title" content="Clinix System — O Coração Operacional da Sua Clínica Odontológica">
+<meta property="og:description" content="Automatize atendimento e follow-up com IA. Responde em segundos, 24h por dia. Converta mais leads sem aumentar sua equipe.">
+<meta property="og:image" content="https://clinixsystem.com.br/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Clinix System">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clinix System — O Coração Operacional da Sua Clínica Odontológica">
+<meta name="twitter:description" content="Automatize atendimento e follow-up com IA. Responde em segundos, 24h por dia.">
+<meta name="twitter:image" content="https://clinixsystem.com.br/assets/images/og-image.jpg">
+
 <link rel="icon" type="image/png" href="assets/logo/logo-app.png">
 <!-- Preconnects -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,16 +31,26 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-<!-- Lenis (smooth scroll) -->
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
-<!-- GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<!-- ApexCharts -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js"></script>
+<!-- Fonts -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Analytics: dataLayer antes de tudo -->
+<script>window.dataLayer = window.dataLayer || [];</script>
+<!-- Captura de UTMs / fbclid / gclid antes do GTM -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var utms = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','ttclid','gclid'];
+  utms.forEach(function(k) {
+    var v = params.get(k);
+    if (v) { sessionStorage.setItem(k, v); dataLayer.push({[k]: v}); }
+  });
+  dataLayer.push({event: 'page_view', page_type: 'landing'});
+})();
+</script>
+<!-- GTM: substitua GTM-XXXXXXX pelo ID real -->
+<!-- <script>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
 <style>
   :root {
     --night: #050C1A; --deep: #070D1F; --royal: #1A2E8A;
@@ -87,7 +117,7 @@
   .nav-mobile-menu .nav-cta { text-align: center; margin-top: 8px; border-bottom: none; }
   /* ── LAYOUT ──────────────────────────────────────── */
   .container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
-  .section-pad { padding: clamp(56px, 6vw, 80px) 0; }
+  .section-pad { padding: clamp(80px, 8vw, 120px) 0; }
   /* ── TYPOGRAPHY ──────────────────────────────────── */
   .section-label { font-size: clamp(10px, 1vw, 11px); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bright); margin-bottom: 20px; display: block; }
   .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
@@ -157,6 +187,7 @@
   .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--bright), transparent); animation: scrollAnim 2.5s infinite; }
   @keyframes scrollAnim { 0% { opacity: 0; transform: scaleY(0); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); } 100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   /* SECTION 2 */
   #diagnostico { background: var(--deep); }
   .belief-breaker { background: rgba(74,127,255,0.05); border: 1px solid rgba(74,127,255,0.15); border-radius: 16px; padding: 36px 44px; margin-bottom: 64px; position: relative; overflow: hidden; }
@@ -464,7 +495,7 @@
   .calc-result-value { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 32px); line-height: 1; letter-spacing: -1px; background: linear-gradient(135deg, #4A7FFF, #B8CCF0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
   .price-card { background: var(--card); border: 1px solid rgba(74,127,255,0.1); border-radius: 20px; padding: 36px; }
-  .price-card.featured { background: linear-gradient(135deg, rgba(74,127,255,0.1), rgba(42,77,181,0.08)); border-color: rgba(74,127,255,0.3); box-shadow: 0 20px 48px rgba(74,127,255,0.1); }
+  .price-card.featured { background: linear-gradient(135deg, rgba(74,127,255,0.1), rgba(42,77,181,0.08)); border-color: rgba(74,127,255,0.3); box-shadow: 0 20px 60px rgba(74,127,255,0.18), 0 0 0 1px rgba(74,127,255,0.12); }
   .price-label { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
   .price-value { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 44px; color: var(--white); letter-spacing: -2px; margin-bottom: 4px; }
   .price-value small { font-size: 18px; color: var(--muted); font-weight: 400; letter-spacing: 0; }
@@ -583,9 +614,30 @@
   /* ── LARGE DESKTOP (≥ 1440px) ───────────────────── */
   @media (min-width: 1440px) {
     .container { max-width: 1240px; }
-    .section-pad { padding: 140px 0; }
+    .section-pad { padding: clamp(120px, 10vw, 160px) 0; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Clinix System",
+  "description": "Sistema de operação inteligente para clínicas odontológicas com IA de atendimento 24/7 e CRM automatizado.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://clinixsystem.com.br/",
+  "offers": {
+    "@type": "Offer",
+    "price": "12800",
+    "priceCurrency": "BRL",
+    "priceValidUntil": "2026-12-31"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Clínicas Odontológicas"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -697,10 +749,10 @@
       <p class="section-intro">Sem contratar mais gente. Sem aumentar o tráfego. Sem depender de quem está no plantão. Apenas operação inteligente.</p>
     </div>
     <div class="virada-toggle reveal">
-      <button class="vtoggle-btn active" data-side="depois">
+      <button type="button" class="vtoggle-btn active" data-side="depois">
         <span class="vtoggle-dot"></span>Com Clinix System
       </button>
-      <button class="vtoggle-btn" data-side="antes">
+      <button type="button" class="vtoggle-btn" data-side="antes">
         <span class="vtoggle-dot"></span>Modelo Antigo
       </button>
     </div>
@@ -1115,6 +1167,12 @@
   <p>Clinix System · O Coração Operacional da Sua Clínica Odontológica</p>
 </footer>
 
+<!-- Lenis (smooth scroll) -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 <script>
   function setupCanvas(canvasId, particleCount, opacity) {
     const canvas = document.getElementById(canvasId);
@@ -1476,9 +1534,6 @@
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true
   });
-  function rafLoop(time) { lenis.raf(time); requestAnimationFrame(rafLoop); }
-  requestAnimationFrame(rafLoop);
-
   // ─── GSAP + ScrollTrigger ────────────────────────────────────────────────
   gsap.registerPlugin(ScrollTrigger);
 
