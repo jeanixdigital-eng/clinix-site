@@ -1,0 +1,11 @@
+# Variáveis de ambiente (nunca enviar para o GitHub)
+.env
+.env.local
+.env*.local
+
+# VS Code
+.vscode/settings.json
+
+# Sistema
+Thumbs.db
+.DS_Store
