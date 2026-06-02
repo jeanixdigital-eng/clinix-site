@@ -29,7 +29,7 @@ Objetivo: converter visitantes em leads qualificados via anúncios (Meta, TikTok
 ## Fontes Atuais
 - **Syne** (400/600/700/800) — títulos e headlines
 - **Playfair Display** (serif, itálico) — frases de destaque e citações
-- **DM Sans** (300/400/500/600) — corpo do texto
+- **Inter** (400/500/600) — corpo do texto (projetada para telas, peso mínimo 400)
 
 ## Seções do Site
 1. Hero — headline principal + CTA
@@ -127,13 +127,23 @@ document.querySelector('form').addEventListener('submit', function() {
 });
 ```
 
-### Estrutura de Arquivos Mínima para Deploy
+### Estrutura de Arquivos
 ```
 CLINIX_SITE/
-├── index.html      ← arquivo principal
-├── sitemap.xml     ← para indexação Google
-├── robots.txt      ← controle de crawlers
-└── og-image.jpg    ← 1200×630px para redes sociais
+├── index.html                  ← arquivo principal
+├── CLAUDE.md                   ← contexto do projeto
+├── sitemap.xml                 ← para indexação Google
+├── robots.txt                  ← controle de crawlers
+├── assets/
+│   ├── logo/
+│   │   ├── logo.svg            ← logo principal (vetorial)
+│   │   ├── logo-white.svg      ← versão branca para dark backgrounds
+│   │   └── favicon.png         ← ícone da aba (32x32px)
+│   ├── images/
+│   │   └── og-image.jpg        ← 1200×630px para redes sociais
+│   └── icons/                  ← ícones adicionais
+└── .claude/
+    └── skills/                 ← habilidades do Claude para este projeto
 ```
 
 ---
