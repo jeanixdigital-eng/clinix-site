@@ -165,7 +165,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 .logo-item{flex-shrink:0;padding:0 2.75rem;display:flex;align-items:center;justify-content:center}
 .logo-item img{height:44px;width:auto;max-width:160px;opacity:.85;transition:opacity .3s,transform .3s;object-fit:contain}
 .logo-item img:hover{opacity:1;transform:scale(1.07)}
-.logo-item img[src*="dental-center"]{height:56px;max-width:180px}
+.logo-item img[src*="dental-center"]{height:90px;max-width:260px}
+.logo-item img[src*="paraiso-odonto"]{height:130px;max-width:340px}
 @media(prefers-reduced-motion:reduce){.logos-track{animation:none}}
 
 /* MÉTRICAS */
@@ -177,6 +178,21 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 .kpi-label{font-size:1rem;color:rgba(255,255,255,.75);margin-top:.35rem}
 .metricas-tagline{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.6);margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15)}
 .metricas-tagline span{color:#fff}
+/* Brazil Map */
+.brazil-map-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.brazil-map-img{width:100%;max-width:380px;opacity:0;transform:scale(.96);filter:brightness(0) invert(1);transition:none;animation:map-img-in 1.2s cubic-bezier(.4,0,.2,1) forwards;animation-play-state:paused}
+.map-city{position:absolute;border-radius:50%;background:#fff;opacity:0;transform:scale(0);animation:city-pop .5s cubic-bezier(.34,1.56,.64,1) forwards;animation-play-state:paused}
+.map-capital{animation:city-pop .5s cubic-bezier(.34,1.56,.64,1) forwards,capital-pulse 3s ease-in-out infinite;animation-delay:0s,1.4s;animation-play-state:paused}
+.map-ripple{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.6);opacity:0;transform:scale(1);animation:ripple-out 3s ease-out infinite;animation-play-state:paused}
+@keyframes map-img-in{0%{opacity:0;transform:scale(.96)}100%{opacity:1;transform:scale(1)}}
+@keyframes city-pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@keyframes capital-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
+@keyframes ripple-out{0%{transform:scale(1);opacity:.6}100%{transform:scale(5);opacity:0}}
+.brazil-map-wrap.playing .brazil-map-img,
+.brazil-map-wrap.playing .map-city,
+.brazil-map-wrap.playing .map-capital,
+.brazil-map-wrap.playing .map-ripple{animation-play-state:running}
+@media(prefers-reduced-motion:reduce){.brazil-map-img{animation:none;opacity:1;transform:none}.map-city,.map-capital,.map-ripple{animation:none;opacity:1;transform:none}}
 
 /* IA */
 #ia{background:var(--bg-white)}
@@ -832,19 +848,28 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
       </div>
       <div class="metricas-tagline">Temos a confiança de <span>+20 mil clínicas</span> odontológicas em todo o Brasil</div>
     </div>
-    <div style="display:flex;align-items:center;justify-content:center">
-      <svg viewBox="0 0 360 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:360px" role="img" aria-label="Mapa do Brasil">
-        <path d="M180 38 L216 48 L244 76 L272 86 L300 106 L318 134 L328 162 L322 190 L336 210 L330 238 L306 258 L286 288 L258 308 L230 328 L212 358 L194 376 L178 394 L164 380 L150 360 L136 340 L122 316 L102 296 L84 272 L70 248 L60 224 L56 200 L62 176 L52 152 L68 128 L88 108 L112 88 L140 66 L162 48 Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-        <circle cx="180" cy="190" r="9" fill="white" opacity=".95"/>
-        <circle cx="142" cy="142" r="5" fill="white" opacity=".6"/>
-        <circle cx="220" cy="160" r="5" fill="white" opacity=".6"/>
-        <circle cx="162" cy="248" r="5" fill="white" opacity=".6"/>
-        <circle cx="258" cy="218" r="5" fill="white" opacity=".6"/>
-        <circle cx="116" cy="218" r="4" fill="white" opacity=".4"/>
-        <circle cx="200" cy="288" r="4" fill="white" opacity=".4"/>
-        <circle cx="88" cy="178" r="4" fill="white" opacity=".4"/>
-        <text x="180" y="424" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="13" font-family="'Plus Jakarta Sans',sans-serif">Presente em todo o Brasil</text>
-      </svg>
+    <div class="brazil-map-wrap">
+      <img class="brazil-map-img" src="assets/images/mapa-brasil.png" alt="Mapa do Brasil — Clinix presente em todo o território nacional" width="380" height="420" loading="lazy">
+      <!-- Dots posicionados sobre o mapa (% relativo ao wrapper) -->
+      <!-- Brasília — capital -->
+      <span class="map-ripple"  style="width:20px;height:20px;top:55%;left:56%;" aria-hidden="true"></span>
+      <span class="map-ripple"  style="width:20px;height:20px;top:55%;left:56%;animation-delay:1.8s" aria-hidden="true"></span>
+      <span class="map-capital map-city" style="width:14px;height:14px;top:calc(55% - 7px);left:calc(56% - 7px);animation-delay:1.2s;box-shadow:0 0 0 3px rgba(255,255,255,.3)" aria-hidden="true"></span>
+      <!-- São Paulo -->
+      <span class="map-city" style="width:9px;height:9px;top:calc(68% - 4.5px);left:calc(63% - 4.5px);background:rgba(255,255,255,.85);animation-delay:1.5s" aria-hidden="true"></span>
+      <!-- Rio de Janeiro -->
+      <span class="map-city" style="width:8px;height:8px;top:calc(64% - 4px);left:calc(66% - 4px);background:rgba(255,255,255,.75);animation-delay:1.7s" aria-hidden="true"></span>
+      <!-- Fortaleza -->
+      <span class="map-city" style="width:7px;height:7px;top:calc(26% - 3.5px);left:calc(76% - 3.5px);background:rgba(255,255,255,.7);animation-delay:1.9s" aria-hidden="true"></span>
+      <!-- Manaus -->
+      <span class="map-city" style="width:7px;height:7px;top:calc(30% - 3.5px);left:calc(28% - 3.5px);background:rgba(255,255,255,.65);animation-delay:2.1s" aria-hidden="true"></span>
+      <!-- Belém -->
+      <span class="map-city" style="width:6px;height:6px;top:calc(14% - 3px);left:calc(50% - 3px);background:rgba(255,255,255,.65);animation-delay:2.3s" aria-hidden="true"></span>
+      <!-- Salvador -->
+      <span class="map-city" style="width:6px;height:6px;top:calc(49% - 3px);left:calc(72% - 3px);background:rgba(255,255,255,.6);animation-delay:2.5s" aria-hidden="true"></span>
+      <!-- Porto Alegre -->
+      <span class="map-city" style="width:6px;height:6px;top:calc(84% - 3px);left:calc(50% - 3px);background:rgba(255,255,255,.55);animation-delay:2.7s" aria-hidden="true"></span>
+      <p style="position:absolute;bottom:-28px;width:100%;text-align:center;font-size:.75rem;color:rgba(255,255,255,.45);font-family:'Plus Jakarta Sans',sans-serif">Presente em todo o Brasil</p>
     </div>
   </div>
 </section>
@@ -1454,6 +1479,16 @@ document.getElementById('lead-form').addEventListener('submit',function(){
     if(el)el.value=sessionStorage.getItem(k)||'';
   });
 });
+
+// Brazil map — draw on viewport enter
+(function(){
+  var wrap = document.querySelector('.brazil-map-wrap');
+  if(!wrap) return;
+  var obs = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){ wrap.classList.add('playing'); obs.disconnect(); }
+  },{threshold:0.35});
+  obs.observe(wrap);
+})();
 
 // Hero — 3D tilt + glow tracking + particles
 (function(){
