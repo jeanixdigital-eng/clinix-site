@@ -65,8 +65,13 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 .hero-stats{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
 .hero-stat-num{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:800;color:#fff}
 .hero-stat-label{font-size:.8rem;color:var(--text-muted)}
-.hero-mockup{position:relative}
-.mockup-window{background:#0D1530;border-radius:16px;border:1px solid rgba(74,127,255,.2);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(74,127,255,.1)}
+.hero-mockup{position:relative;animation:hero-float 6s ease-in-out infinite;will-change:transform}
+@keyframes hero-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.mockup-window{background:#0D1530;border-radius:16px;border:1px solid rgba(74,127,255,.2);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(74,127,255,.1);transform-style:preserve-3d;will-change:transform}
+/* Particles */
+.hero-particle{position:absolute;border-radius:50%;pointer-events:none;animation:particle-rise linear infinite}
+@keyframes particle-rise{0%{transform:translateY(0) scale(1);opacity:.5}100%{transform:translateY(-120px) scale(.3);opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-mockup{animation:none}.hero-particle{display:none}}
 .mockup-bar{background:#111B35;padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
 .mockup-dot{width:10px;height:10px;border-radius:50%}
 .mockup-title{font-size:.75rem;color:rgba(255,255,255,.4);margin-left:.5rem}
@@ -134,14 +139,18 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 /* DESAFIOS */
 #desafios{background:var(--bg-white)}
 .desafios-header{text-align:center;max-width:640px;margin:0 auto 3.5rem}
-.desafios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.desafio-card{background:var(--bg-light);border-radius:16px;padding:1.75rem;transition:transform .2s,box-shadow .2s}
-.desafio-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(74,127,255,.1)}
-.desafio-icon{width:52px;height:52px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.desafio-title{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem}
-.desafio-text{font-size:.88rem;color:var(--text-muted);line-height:1.6}
-.desafios-cta{text-align:center;margin-top:3rem}
-.desafios-cta p{font-size:1.1rem;font-weight:600;color:var(--text-dark);margin-bottom:1rem}
+.desafios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.desafio-card{background:var(--bg-light);border-radius:16px;padding:1.6rem 1.6rem 0;display:flex;flex-direction:column;min-height:220px;transition:transform .2s,box-shadow .2s;overflow:hidden}
+.desafio-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(74,127,255,.12)}
+.desafio-title{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:.45rem;line-height:1.35}
+.desafio-text{font-size:.83rem;color:var(--text-muted);line-height:1.6;flex:1}
+.desafio-illus{margin-top:auto;padding-top:1rem;height:108px;display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden}
+.desafio-illus svg{width:100%;height:auto;display:block}
+.desafio-card-cta{background:var(--bg-light);border-radius:16px;padding:2rem 1.6rem;display:flex;flex-direction:column;justify-content:center;min-height:220px;border:2px solid var(--border)}
+.desafio-card-cta h3{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:.6rem}
+.desafio-card-cta p{font-size:.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.25rem}
+.btn-cta-card{display:inline-block;background:#4A7FFF;color:#fff;font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:600;padding:.7rem 1.4rem;border-radius:8px;text-decoration:none;transition:background .2s}
+.btn-cta-card:hover{background:#2A4DB5}
 
 /* LOGOS */
 #logos{background:var(--bg-light);padding:60px 5%}
@@ -201,13 +210,16 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 .func-preview-body{padding:1.25rem}
 
 /* DIFERENCIAIS */
-#diferenciais{background:var(--bg-white)}
-.dif-header{text-align:center;max-width:580px;margin:0 auto 3rem}
-.dif-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-.dif-card{background:var(--bg-light);border-radius:14px;padding:1.5rem;text-align:center}
-.dif-card-icon{width:52px;height:52px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.dif-card-title{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;color:var(--text-dark);margin-bottom:.35rem}
-.dif-card-text{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+#diferenciais{background:var(--bg-light)}
+.dif-header{text-align:center;max-width:580px;margin:0 auto 3.5rem}
+.dif-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.25rem;counter-reset:dif}
+.dif-card{flex:0 1 calc(25% - 1rem);min-width:220px;background:#fff;border-radius:18px;padding:1.75rem;text-align:left;border:1.5px solid transparent;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;counter-increment:dif;overflow:hidden}
+.dif-card::before{content:"0" counter(dif);position:absolute;top:1.2rem;right:1.4rem;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;color:#6B7FA3;opacity:.25;letter-spacing:.04em}
+.dif-card::after{content:'';position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(74,127,255,.04),transparent 60%);pointer-events:none}
+.dif-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(74,127,255,.13);border-color:rgba(74,127,255,.22)}
+.dif-card-icon{width:50px;height:50px;background:linear-gradient(135deg,rgba(74,127,255,.18) 0%,rgba(42,77,181,.08) 100%);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+.dif-card-title{font-family:'DM Sans',sans-serif;font-size:.96rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;line-height:1.3}
+.dif-card-text{font-size:.82rem;color:var(--text-muted);line-height:1.62}
 
 /* RESULTADO */
 #resultado{background:var(--deep);padding:80px 5%}
@@ -266,7 +278,7 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .dif-grid{grid-template-columns:repeat(2,1fr)}
+  .dif-card{flex-basis:calc(33.33% - 1rem);min-width:200px}
   .footer-grid{grid-template-columns:1fr 1fr 1fr}
   .footer-grid .footer-brand{grid-column:1/-1}
 }
@@ -277,14 +289,17 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
   .hero-mockup{display:none}
   .contato-inner,.case-inner,.metricas-inner,.ia-inner{grid-template-columns:1fr}
   .desafios-grid{grid-template-columns:1fr 1fr}
+  .desafio-card,.desafio-card-cta{min-height:200px}
   .func-panel.active{grid-template-columns:1fr}
   .func-preview{display:none}
-  .dif-grid{grid-template-columns:1fr 1fr}
+  .dif-card{flex-basis:calc(50% - 0.7rem);min-width:180px}
   .produtos-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
-  .desafios-grid,.dif-grid,.case-metrics{grid-template-columns:1fr}
+  .desafios-grid,.case-metrics{grid-template-columns:1fr}
+  .dif-card{flex-basis:100%;min-width:unset}
+  .desafio-card,.desafio-card-cta{min-height:auto}
   .footer-grid{grid-template-columns:1fr}
   .hero-stats{flex-wrap:wrap;gap:1rem}
 }
@@ -526,40 +541,236 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
       <p class="section-sub section-sub-center">Identificamos os gargalos mais comuns e desenvolvemos soluções específicas para cada um deles.</p>
     </div>
     <div class="desafios-grid">
+
+      <!-- Card 1 -->
       <div class="desafio-card reveal">
-        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <div class="desafio-title">Agenda desorganizada</div>
-        <div class="desafio-text">Horários duplicados, faltas sem aviso e dificuldade para encaixar emergências prejudicam sua produtividade.</div>
+        <div class="desafio-title">Produtividade e organização</div>
+        <div class="desafio-text">Sua equipe perde tempo com tarefas manuais e falta de organização na agenda?</div>
+        <div class="desafio-illus" aria-hidden="true">
+          <svg viewBox="0 0 220 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="dg1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4A7FFF"/>
+                <stop offset="100%" stop-color="#2A4DB5"/>
+              </linearGradient>
+              <linearGradient id="dg1f" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4A7FFF" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#4A7FFF" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Grid lines -->
+            <line x1="6" y1="16" x2="214" y2="16" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="6" y1="36" x2="214" y2="36" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="6" y1="56" x2="214" y2="56" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- Area fill under trend -->
+            <polygon points="20,60 54,52 88,46 122,36 156,22 190,6 190,80 20,80" fill="url(#dg1f)"/>
+            <!-- Bars -->
+            <rect x="8"   y="60" width="24" height="18" rx="4" fill="#D1D9EE"/>
+            <rect x="42"  y="52" width="24" height="26" rx="4" fill="#D1D9EE"/>
+            <rect x="76"  y="46" width="24" height="32" rx="4" fill="#C5D0E8"/>
+            <rect x="110" y="36" width="24" height="42" rx="4" fill="#8099C8" opacity=".5"/>
+            <rect x="144" y="22" width="24" height="56" rx="4" fill="url(#dg1)" opacity=".65"/>
+            <rect x="178" y="6"  width="24" height="72" rx="4" fill="url(#dg1)"/>
+            <!-- Top highlight on tallest bar -->
+            <rect x="178" y="6" width="24" height="6" rx="4" fill="#fff" opacity=".18"/>
+            <!-- Trend line -->
+            <polyline points="20,60 54,52 88,46 122,36 156,22 190,6" stroke="#4A7FFF" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity=".55" stroke-linecap="round"/>
+            <!-- Peak glow + dot -->
+            <circle cx="190" cy="6" r="9" fill="#4A7FFF" opacity=".15"/>
+            <circle cx="190" cy="6" r="5" fill="#4A7FFF"/>
+            <circle cx="190" cy="6" r="2" fill="#fff" opacity=".7"/>
+            <!-- X-axis -->
+            <line x1="4" y1="80" x2="216" y2="80" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="20"  y1="80" x2="20"  y2="84" stroke="#D1D9EE" stroke-width="1.5"/>
+            <line x1="54"  y1="80" x2="54"  y2="84" stroke="#D1D9EE" stroke-width="1.5"/>
+            <line x1="88"  y1="80" x2="88"  y2="84" stroke="#D1D9EE" stroke-width="1.5"/>
+            <line x1="122" y1="80" x2="122" y2="84" stroke="#D1D9EE" stroke-width="1.5"/>
+            <line x1="156" y1="80" x2="156" y2="84" stroke="#D1D9EE" stroke-width="1.5"/>
+            <line x1="190" y1="80" x2="190" y2="84" stroke="#D1D9EE" stroke-width="1.5"/>
+          </svg>
+        </div>
       </div>
+
+      <!-- Card 2 -->
       <div class="desafio-card reveal">
-        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <div class="desafio-title">Engajamento baixo</div>
-        <div class="desafio-text">Pacientes que somem após a primeira consulta e não retornam para tratamentos contínuos ou manutenção.</div>
+        <div class="desafio-title">Conversão e financeiro sustentável</div>
+        <div class="desafio-text">Sua clínica está deixando dinheiro na mesa por falta de controle financeiro?</div>
+        <div class="desafio-illus" aria-hidden="true">
+          <svg viewBox="0 0 220 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="dg2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4A7FFF"/>
+                <stop offset="100%" stop-color="#2A4DB5"/>
+              </linearGradient>
+            </defs>
+            <!-- Grid -->
+            <line x1="6" y1="20" x2="214" y2="20" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="6" y1="46" x2="214" y2="46" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- Group 1 -->
+            <rect x="8"  y="54" width="20" height="24" rx="4" fill="#D1D9EE"/>
+            <rect x="30" y="44" width="20" height="34" rx="4" fill="url(#dg2)" opacity=".45"/>
+            <!-- Separator -->
+            <line x1="62" y1="22" x2="62" y2="78" stroke="#F0F2FA" stroke-width="1.5"/>
+            <!-- Group 2 -->
+            <rect x="68" y="46" width="20" height="32" rx="4" fill="#D1D9EE"/>
+            <rect x="90" y="28" width="20" height="50" rx="4" fill="url(#dg2)" opacity=".7"/>
+            <!-- Separator -->
+            <line x1="124" y1="22" x2="124" y2="78" stroke="#F0F2FA" stroke-width="1.5"/>
+            <!-- Group 3 — big growth -->
+            <rect x="130" y="50" width="20" height="28" rx="4" fill="#D1D9EE"/>
+            <rect x="152" y="6"  width="20" height="72" rx="4" fill="url(#dg2)"/>
+            <!-- Top highlight -->
+            <rect x="152" y="6" width="20" height="6" rx="4" fill="#fff" opacity=".2"/>
+            <!-- Growth triangle cap -->
+            <polygon points="162,1 156,9 168,9" fill="#4A7FFF"/>
+            <!-- Legend dots -->
+            <circle cx="10" cy="86" r="4" fill="#D1D9EE"/>
+            <line x1="16" y1="86" x2="26" y2="86" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="40" cy="86" r="4" fill="#4A7FFF" opacity=".7"/>
+            <line x1="46" y1="86" x2="68" y2="86" stroke="#4A7FFF" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+            <!-- X-axis -->
+            <line x1="4" y1="80" x2="216" y2="80" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
+
+      <!-- Card 3 -->
       <div class="desafio-card reveal">
-        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <div class="desafio-title">Inadimplência alta</div>
-        <div class="desafio-text">Dificuldade em cobrar, acompanhar parcelas em aberto e oferecer formas de pagamento flexíveis ao paciente.</div>
+        <div class="desafio-title">Lucratividade e segurança financeira</div>
+        <div class="desafio-text">A gestão financeira da sua clínica é baseada em dados reais ou em opiniões?</div>
+        <div class="desafio-illus" aria-hidden="true" style="align-items:center">
+          <svg viewBox="0 0 240 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="dg3p" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#4A7FFF"/>
+                <stop offset="100%" stop-color="#1A2E8A"/>
+              </linearGradient>
+            </defs>
+            <!-- Track (full gray) -->
+            <line x1="14" y1="32" x2="226" y2="32" stroke="#E5E7EB" stroke-width="3" stroke-linecap="round"/>
+            <!-- Track progress overlay (60%) -->
+            <line x1="14" y1="32" x2="160" y2="32" stroke="url(#dg3p)" stroke-width="3" stroke-linecap="round"/>
+            <!-- Dot 1 — large bright -->
+            <circle cx="14"  cy="32" r="14" fill="#4A7FFF" opacity=".12"/>
+            <circle cx="14"  cy="32" r="10" fill="#4A7FFF"/>
+            <circle cx="14"  cy="32" r="4.5" fill="#fff" opacity=".55"/>
+            <!-- Dot 2 -->
+            <circle cx="52"  cy="32" r="8"  fill="#4A7FFF" opacity=".78"/>
+            <circle cx="52"  cy="32" r="3"  fill="#fff" opacity=".4"/>
+            <!-- Dot 3 -->
+            <circle cx="88"  cy="32" r="6.5" fill="#3D6FE8" opacity=".62"/>
+            <!-- Dot 4 — neutral pivot -->
+            <circle cx="120" cy="32" r="7"  fill="#fff" stroke="#C5D0E8" stroke-width="2.5"/>
+            <circle cx="120" cy="32" r="2.5" fill="#C5D0E8"/>
+            <!-- Dot 5 -->
+            <circle cx="152" cy="32" r="6.5" fill="#2A4DB5" opacity=".7"/>
+            <!-- Dot 6 -->
+            <circle cx="186" cy="32" r="8"  fill="#1A2E8A" opacity=".82"/>
+            <circle cx="186" cy="32" r="3"  fill="#fff" opacity=".25"/>
+            <!-- Dot 7 — large dark -->
+            <circle cx="224" cy="32" r="14" fill="#050C1A" opacity=".08"/>
+            <circle cx="224" cy="32" r="10" fill="#050C1A"/>
+            <circle cx="224" cy="32" r="4.5" fill="#fff" opacity=".18"/>
+            <!-- Bottom bracket -->
+            <line x1="14"  y1="50" x2="14"  y2="56" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="120" y1="50" x2="120" y2="56" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="224" y1="50" x2="224" y2="56" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14"  y1="53" x2="120" y2="53" stroke="#4A7FFF" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+            <line x1="120" y1="53" x2="224" y2="53" stroke="#D1D9EE" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
       </div>
+
+      <!-- Card 4 -->
       <div class="desafio-card reveal">
-        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <div class="desafio-title">Falta de indicadores</div>
-        <div class="desafio-text">Sem dados confiáveis, você toma decisões no escuro e não consegue identificar onde está perdendo receita.</div>
+        <div class="desafio-title">Engajamento com pacientes</div>
+        <div class="desafio-text">Seus pacientes somem depois do primeiro atendimento e não retornam?</div>
+        <div class="desafio-illus" aria-hidden="true" style="align-items:center;justify-content:center">
+          <svg viewBox="0 0 160 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer orbit glow arc -->
+            <circle cx="80" cy="58" r="50" stroke="#4A7FFF" stroke-width="1" opacity=".08" stroke-dasharray="6 5"/>
+            <!-- Outer orbit -->
+            <circle cx="80" cy="58" r="46" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="5 5"/>
+            <!-- Inner orbit -->
+            <circle cx="80" cy="58" r="27" stroke="#D1D9EE" stroke-width="1.5"/>
+            <!-- Center glow -->
+            <circle cx="80" cy="58" r="20" fill="#4A7FFF" opacity=".08"/>
+            <!-- Center circle -->
+            <circle cx="80" cy="58" r="16" fill="#fff" stroke="#4A7FFF" stroke-width="2"/>
+            <!-- Person head -->
+            <circle cx="80" cy="53.5" r="5" fill="#4A7FFF"/>
+            <!-- Person body arc -->
+            <path d="M71.5 66 Q80 61.5 88.5 66" stroke="#4A7FFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+            <!-- Top satellite: notification — glow + circle + icon -->
+            <circle cx="80" cy="8"  r="14" fill="#2A4DB5" opacity=".1"/>
+            <circle cx="80" cy="8"  r="10" fill="#2A4DB5"/>
+            <!-- Bell icon -->
+            <path d="M77 7 Q77 4 80 5.5 Q83 4 83 7 Q84 9 84 11 L76 11 Q76 9 77 7Z" fill="#fff" opacity=".9"/>
+            <rect x="78.5" y="11" width="3" height="2" rx="1" fill="#fff" opacity=".7"/>
+            <circle cx="80" cy="13.5" r="1.5" fill="#fff"/>
+
+            <!-- Right satellite: checkmark — glow + circle + icon -->
+            <circle cx="127" cy="58" r="14" fill="#4A7FFF" opacity=".1"/>
+            <circle cx="127" cy="58" r="10" fill="#4A7FFF" opacity=".15"/>
+            <circle cx="127" cy="58" r="10" stroke="#4A7FFF" stroke-width="1.5"/>
+            <polyline points="122,58 125.5,62 133,53" stroke="#4A7FFF" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Left satellite: heart — glow + circle + icon -->
+            <circle cx="33" cy="58" r="14" fill="#8099C8" opacity=".1"/>
+            <circle cx="33" cy="58" r="10" fill="#E8EEFF" stroke="#D1D9EE" stroke-width="1.5"/>
+            <path d="M29.5 56.5 Q29.5 53.5 33 55.5 Q36.5 53.5 36.5 56.5 Q36.5 59.5 33 62.5 Q29.5 59.5 29.5 56.5Z" fill="#8099C8"/>
+          </svg>
+        </div>
       </div>
+
+      <!-- Card 5 — CTA -->
+      <div class="desafio-card-cta reveal">
+        <h3>Vamos dar o próximo passo?</h3>
+        <p>Fale com um consultor e veja como resolvemos esses desafios na prática.</p>
+        <a href="#contato" class="btn-cta-card">Fale com um especialista</a>
+      </div>
+
+      <!-- Card 6 -->
       <div class="desafio-card reveal">
-        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div class="desafio-title">Prontuários em papel</div>
-        <div class="desafio-text">Fichas físicas se perdem, ocupam espaço e dificultam o acesso rápido ao histórico do paciente.</div>
+        <div class="desafio-title">Controle e gestão operacional</div>
+        <div class="desafio-text">Você sente que não tem controle do que acontece na clínica no dia a dia?</div>
+        <div class="desafio-illus" aria-hidden="true" style="align-items:center">
+          <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Shadow -->
+            <rect x="16" y="16" width="186" height="80" rx="12" fill="#C5D0E8" opacity=".3"/>
+            <!-- Card body -->
+            <rect x="8" y="8" width="186" height="80" rx="12" fill="#fff" stroke="#E5E7EB" stroke-width="1.5"/>
+            <!-- Header accent strip -->
+            <rect x="8" y="8" width="186" height="18" rx="12" fill="#4A7FFF" opacity=".07"/>
+            <rect x="8" y="20" width="186" height="6"  fill="#4A7FFF" opacity=".07"/>
+            <!-- Header dot indicators -->
+            <circle cx="26" cy="17" r="4" fill="#4A7FFF" opacity=".35"/>
+            <circle cx="38" cy="17" r="4" fill="#4A7FFF" opacity=".2"/>
+            <circle cx="50" cy="17" r="4" fill="#4A7FFF" opacity=".1"/>
+            <!-- Progress bar track -->
+            <rect x="110" y="13" width="68" height="7" rx="3.5" fill="#EEF1F8"/>
+            <!-- Progress fill (67%) -->
+            <rect x="110" y="13" width="45" height="7" rx="3.5" fill="#4A7FFF" opacity=".6"/>
+            <!-- Row 1 -->
+            <rect x="24" y="34" width="100" height="7.5" rx="3.5" fill="#EEF1F8"/>
+            <rect x="24" y="34" width="60"  height="7.5" rx="3.5" fill="#D1D9EE"/>
+            <circle cx="170" cy="37.5" r="9.5" fill="#4A7FFF" opacity=".12"/>
+            <polyline points="165,37.5 168.5,41 176,33" stroke="#4A7FFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Row 2 -->
+            <rect x="24" y="52" width="100" height="7.5" rx="3.5" fill="#EEF1F8"/>
+            <rect x="24" y="52" width="76"  height="7.5" rx="3.5" fill="#D1D9EE"/>
+            <circle cx="170" cy="55.5" r="9.5" fill="#4A7FFF" opacity=".12"/>
+            <polyline points="165,55.5 168.5,59 176,51" stroke="#4A7FFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Row 3 — pending -->
+            <rect x="24" y="70" width="100" height="7.5" rx="3.5" fill="#F4F6FF"/>
+            <rect x="24" y="70" width="44"  height="7.5" rx="3.5" fill="#EEF1F8"/>
+            <circle cx="170" cy="73.5" r="9.5" fill="#F4F6FF" stroke="#D1D9EE" stroke-width="1.5"/>
+            <line x1="166" y1="73.5" x2="174" y2="73.5" stroke="#D1D9EE" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
-      <div class="desafio-card reveal">
-        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <div class="desafio-title">Controle operacional</div>
-        <div class="desafio-text">Gestão de estoque, materiais e equipe feita de forma manual, gerando desperdício e retrabalho.</div>
-      </div>
-    </div>
-    <div class="desafios-cta">
-      <p>Quer resolver esses problemas de uma vez?</p>
-      <a href="#contato" class="btn-primary">Fale com um especialista</a>
+
     </div>
   </div>
 </section>
@@ -1227,6 +1438,69 @@ document.getElementById('lead-form').addEventListener('submit',function(){
     if(el)el.value=sessionStorage.getItem(k)||'';
   });
 });
+
+// Hero — 3D tilt + glow tracking + particles
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  var hero = document.getElementById('hero');
+  if(!hero) return;
+  var win  = hero.querySelector('.mockup-window');
+  var glow = hero.querySelector('.hero-glow');
+  if(!win) return;
+
+  // Partículas flutuantes
+  var colors = ['rgba(74,127,255,.55)','rgba(61,111,232,.4)','rgba(42,77,181,.45)'];
+  for(var i=0;i<8;i++){
+    var p=document.createElement('div');
+    p.className='hero-particle';
+    var sz=2+Math.random()*4;
+    p.style.cssText='width:'+sz+'px;height:'+sz+'px;'
+      +'left:'+(8+Math.random()*84)+'%;'
+      +'bottom:'+(5+Math.random()*70)+'%;'
+      +'background:'+colors[i%3]+';'
+      +'animation-duration:'+(5+Math.random()*7)+'s;'
+      +'animation-delay:'+(Math.random()*5)+'s;';
+    hero.appendChild(p);
+  }
+
+  // Tilt com lerp
+  var tx=0,ty=0,cx=0,cy=0,raf;
+
+  function lerp(a,b,t){return a+(b-a)*t;}
+
+  function tick(){
+    cx=lerp(cx,tx,0.07);
+    cy=lerp(cy,ty,0.07);
+    var tiltX=-cy*9;
+    var tiltY= cx*9;
+    win.style.transform='perspective(1100px) rotateX('+tiltX+'deg) rotateY('+tiltY+'deg)';
+    var depth=Math.sqrt(cx*cx+cy*cy);
+    win.style.boxShadow='0 '+(32+depth*14)+'px '+(80+depth*24)+'px rgba(0,0,0,'+(0.6+depth*0.12)+'),0 0 0 1px rgba(74,127,255,.12)';
+    raf=requestAnimationFrame(tick);
+  }
+  tick();
+
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    tx=(e.clientX-r.left-r.width/2)/(r.width/2);
+    ty=(e.clientY-r.top-r.height/2)/(r.height/2);
+    if(glow){
+      glow.style.left=(50+tx*14)+'%';
+      glow.style.top=(-20+ty*10)+'%';
+    }
+  });
+
+  hero.addEventListener('mouseleave',function(){
+    tx=0; ty=0;
+    if(glow){
+      glow.style.transition='left .9s cubic-bezier(.34,1.56,.64,1),top .9s cubic-bezier(.34,1.56,.64,1)';
+      glow.style.left='50%';
+      glow.style.top='-20%';
+      setTimeout(function(){if(glow)glow.style.transition='';},900);
+    }
+  });
+})();
 </script>
 </body>
 </html>
