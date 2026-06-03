@@ -297,6 +297,76 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:none}
 
+/* === PREMIUM SCROLL MICRO-ANIMATIONS === */
+
+/* Cascade --stagger to children via custom property */
+.reveal.visible{transition-delay:var(--stagger,0s)}
+
+/* Icons pop in after parent card reveals */
+.dif-card-icon,.produto-icon{
+  opacity:0;transform:scale(.72);
+  transition:opacity .28s ease calc(var(--stagger,0s) + .18s),
+             transform .3s cubic-bezier(.34,1.56,.64,1) calc(var(--stagger,0s) + .18s)
+}
+.trust-icon{
+  opacity:0;transform:translateX(-8px) scale(.85);
+  transition:opacity .26s ease calc(var(--stagger,0s) + .1s),
+             transform .28s cubic-bezier(.34,1.56,.64,1) calc(var(--stagger,0s) + .1s)
+}
+.reveal.visible .dif-card-icon,
+.reveal.visible .produto-icon{opacity:1;transform:scale(1)}
+.reveal.visible .trust-icon{opacity:1;transform:none}
+
+/* SVG illustrations fade up within desafio cards */
+.desafio-illus svg{
+  opacity:0;transform:translateY(10px);
+  transition:opacity .4s ease calc(var(--stagger,0s) + .28s),
+             transform .4s ease calc(var(--stagger,0s) + .28s)
+}
+.reveal.visible .desafio-illus svg{opacity:1;transform:none}
+
+/* Metric numbers scale in */
+.case-metric-num{
+  opacity:0;transform:scale(.75);
+  transition:opacity .36s cubic-bezier(.34,1.56,.64,1) calc(var(--stagger,0s) + .16s),
+             transform .36s cubic-bezier(.34,1.56,.64,1) calc(var(--stagger,0s) + .16s)
+}
+.reveal.visible .case-metric-num{opacity:1;transform:scale(1)}
+
+/* KPI numbers fade from left */
+.kpi-num{
+  opacity:0;transform:translateX(-10px);
+  transition:opacity .4s ease calc(var(--stagger,0s) + .2s),
+             transform .4s ease calc(var(--stagger,0s) + .2s)
+}
+.reveal.visible .kpi-num{opacity:1;transform:none}
+
+/* Direction overrides per element type */
+.kpi-item.reveal{transform:translateX(-22px)}
+.kpi-item.reveal.visible{transform:none}
+.ia-screen.reveal{transform:translateX(22px)}
+.ia-screen.reveal.visible{transform:none}
+.trust-item.reveal{transform:translateX(-18px)}
+.trust-item.reveal.visible{transform:none}
+
+/* WhatsApp pulse ring */
+@keyframes wa-ping{
+  0%{box-shadow:0 4px 16px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.5)}
+  70%{box-shadow:0 4px 16px rgba(37,211,102,.4),0 0 0 10px rgba(37,211,102,0)}
+  100%{box-shadow:0 4px 16px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,0)}
+}
+.wa-float{animation:wa-ping 2.2s cubic-bezier(0,.5,.5,1) infinite}
+.wa-float:hover{animation:none;transform:scale(1.08)}
+
+/* Reduced motion: show all immediately, no custom transitions */
+@media(prefers-reduced-motion:reduce){
+  .dif-card-icon,.produto-icon,.trust-icon,
+  .desafio-illus svg,.case-metric-num,.kpi-num{
+    opacity:1;transform:none;transition:none
+  }
+  .wa-float{animation:none}
+}
+
 /* WHATSAPP FLOAT */
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
 .wa-float:hover{transform:scale(1.08)}
@@ -1464,13 +1534,28 @@ document.querySelectorAll('.func-subtab').forEach(function(tab){
   });
 });
 
-// Reveal on scroll
+// Enhanced reveal on scroll — stagger + micro-animations
+var reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 var revealObs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}
+    if(!e.isIntersecting) return;
+    if(!reduced){
+      var siblings=Array.from(e.target.parentElement.querySelectorAll(':scope > .reveal'));
+      var idx=siblings.indexOf(e.target);
+      if(idx>0) e.target.style.setProperty('--stagger',(idx*0.08)+'s');
+    }
+    e.target.classList.add('visible');
+    revealObs.unobserve(e.target);
   });
-},{threshold:0.12});
+},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
+
+// Extend reveal to additional elements (trust-items, case-metrics, ia-screens, produto-cards)
+['trust-item','case-metric','ia-screen','produto-card'].forEach(function(cls){
+  document.querySelectorAll('.'+cls).forEach(function(el){
+    if(!el.classList.contains('reveal')){el.classList.add('reveal');revealObs.observe(el);}
+  });
+});
 
 // Form UTM
 document.getElementById('lead-form').addEventListener('submit',function(){
