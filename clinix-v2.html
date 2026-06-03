@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinix System — Software Odontológico para Clínicas e Consultórios</title>
+<meta name="description" content="O melhor software odontológico para clínicas e consultórios. Automatize agenda, prontuário, financeiro e vendas com IA. Mais de 100 mil usuários ativos.">
+<link rel="canonical" href="https://clinixsystem.com.br/">
+<meta property="og:title" content="Clinix System — Software Odontológico">
+<meta property="og:description" content="Automatize sua clínica com IA. Agenda, prontuário, financeiro e muito mais.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clinixsystem.com.br/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --night:#050C1A;--deep:#070D1F;--royal:#1A2E8A;--electric:#2A4DB5;--glow:#3D6FE8;--bright:#4A7FFF;--ice:#B8CCF0;
+  --bg-white:#FFFFFF;--bg-light:#F4F6FF;--bg-mid:#EEF1FB;
+  --text-dark:#111827;--text-mid:#374151;--text-muted:#6B7FA3;--border:#E5E7EB;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);background:#fff;overflow-x:hidden}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;transition:background .3s,box-shadow .3s;background:transparent}
+#nav.scrolled{background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{height:36px;width:36px;display:block;border-radius:8px}
+.nav-logo-text{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;transition:color .3s;white-space:nowrap}
+#nav.scrolled .nav-logo-text{color:var(--text-dark)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;transition:color .2s}
+#nav.scrolled .nav-links a{color:var(--text-mid)}
+.nav-links a:hover{color:var(--bright)}
+.nav-actions{display:flex;gap:.75rem;align-items:center}
+.btn-ghost{padding:.5rem 1.1rem;border:1.5px solid rgba(255,255,255,.4);border-radius:8px;font-size:.875rem;font-weight:600;color:#fff;text-decoration:none;transition:all .2s}
+#nav.scrolled .btn-ghost{border-color:var(--border);color:var(--text-dark)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-nav-cta{padding:.5rem 1.2rem;background:var(--bright);border-radius:8px;font-size:.875rem;font-weight:600;color:#fff;text-decoration:none;transition:background .2s}
+.btn-nav-cta:hover{background:var(--electric)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-hamburger span{display:block;width:24px;height:2px;background:#fff;transition:background .3s}
+#nav.scrolled .nav-hamburger span{background:var(--text-dark)}
+
+/* HERO */
+#hero{background:var(--night);min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,127,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(74,127,255,.06) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(74,127,255,.18) 0%,transparent 70%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(74,127,255,.15);border:1px solid rgba(74,127,255,.3);border-radius:20px;padding:.35rem .9rem;font-size:.8rem;font-weight:600;color:var(--bright);margin-bottom:1.25rem}
+.hero-badge-dot{width:6px;height:6px;background:var(--bright);border-radius:50%;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-title{font-family:'DM Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1.25rem}
+.hero-title span{color:var(--bright)}
+.hero-sub{font-size:1.05rem;color:var(--ice);line-height:1.7;margin-bottom:2rem;max-width:480px}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{padding:.85rem 1.75rem;background:var(--bright);border-radius:10px;font-size:.95rem;font-weight:700;color:#fff;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--electric);transform:translateY(-1px)}
+.btn-secondary{padding:.85rem 1.75rem;border:2px solid rgba(255,255,255,.2);border-radius:10px;font-size:.95rem;font-weight:600;color:#fff;text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:rgba(255,255,255,.5)}
+.hero-stats{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.hero-stat-num{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:800;color:#fff}
+.hero-stat-label{font-size:.8rem;color:var(--text-muted)}
+.hero-mockup{position:relative}
+.mockup-window{background:#0D1530;border-radius:16px;border:1px solid rgba(74,127,255,.2);overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(74,127,255,.1)}
+.mockup-bar{background:#111B35;padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.mockup-dot{width:10px;height:10px;border-radius:50%}
+.mockup-title{font-size:.75rem;color:rgba(255,255,255,.4);margin-left:.5rem}
+.mockup-body{padding:1.25rem}
+.mockup-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.mockup-header h4{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;color:#fff}
+.mockup-chip{background:rgba(74,127,255,.2);border-radius:6px;padding:.25rem .6rem;font-size:.7rem;color:var(--bright);font-weight:600}
+.mockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.mockup-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.85rem}
+.mockup-card-label{font-size:.65rem;color:var(--text-muted);margin-bottom:.35rem}
+.mockup-card-val{font-family:'DM Sans',sans-serif;font-size:1.25rem;font-weight:800;color:#fff}
+.mockup-card-val span{font-size:.7rem;font-weight:500;color:#22c55e;margin-left:.25rem}
+.mockup-chart{background:rgba(255,255,255,.03);border-radius:10px;padding:1rem;height:80px;position:relative;overflow:hidden}
+.chart-bars{display:flex;align-items:flex-end;gap:6px;height:100%}
+.chart-bar{flex:1;border-radius:4px 4px 0 0;background:rgba(74,127,255,.3)}
+.chart-bar.active{background:var(--bright)}
+.mockup-list{display:flex;flex-direction:column;gap:.5rem;margin-top:.75rem}
+.mockup-list-item{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.03);border-radius:8px;padding:.6rem .85rem}
+.mockup-avatar{width:26px;height:26px;border-radius:50%;background:var(--electric);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff;flex-shrink:0}
+.mockup-item-name{font-size:.72rem;color:rgba(255,255,255,.7);flex:1}
+.mockup-item-status{font-size:.65rem;font-weight:600;padding:.15rem .45rem;border-radius:4px}
+.status-ok{background:rgba(34,197,94,.15);color:#22c55e}
+.status-pend{background:rgba(250,204,21,.15);color:#fbbf24}
+
+/* SECTION BASE */
+.section{padding:80px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--bright);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
+.section-title{font-family:'DM Sans',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;color:var(--text-dark);line-height:1.2;margin-bottom:1rem}
+.section-sub{font-size:1.05rem;color:var(--text-muted);line-height:1.7;max-width:580px}
+.section-title-center{text-align:center}
+.section-sub-center{text-align:center;margin:0 auto}
+
+/* FORM */
+#contato{background:var(--bg-white)}
+.contato-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:2.5rem;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+.form-card h3{font-family:'DM Sans',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem}
+.form-card p{font-size:.9rem;color:var(--text-muted);margin-bottom:1.5rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text-mid);margin-bottom:.4rem}
+.form-group input,.form-group select{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .2s;background:#fff}
+.form-group input:focus,.form-group select:focus{border-color:var(--bright)}
+.form-submit{width:100%;padding:.9rem;background:var(--bright);border:none;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:#fff;cursor:pointer;transition:background .2s;margin-top:.5rem}
+.form-submit:hover{background:var(--electric)}
+.contato-visual{display:flex;flex-direction:column;gap:1.5rem}
+.trust-items{display:flex;flex-direction:column;gap:.75rem}
+.trust-item{display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--text-mid)}
+.trust-icon{width:36px;height:36px;background:var(--bg-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* CASE */
+#case{background:var(--bg-light)}
+.case-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.case-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.case-metric{background:#fff;border-radius:14px;padding:1.5rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.case-metric-num{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;color:var(--bright)}
+.case-metric-label{font-size:.85rem;color:var(--text-muted);margin-top:.25rem}
+.case-quote{background:#fff;border-radius:14px;padding:1.5rem 1.75rem;border-left:4px solid var(--bright);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.case-quote blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--text-mid);line-height:1.6;margin-bottom:.75rem}
+.case-author{display:flex;align-items:center;gap:.75rem}
+.case-avatar{width:42px;height:42px;border-radius:50%;background:var(--electric);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0}
+.case-author-name{font-weight:700;font-size:.9rem;color:var(--text-dark)}
+.case-author-role{font-size:.8rem;color:var(--text-muted)}
+
+/* DESAFIOS */
+#desafios{background:var(--bg-white)}
+.desafios-header{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+.desafios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.desafio-card{background:var(--bg-light);border-radius:16px;padding:1.75rem;transition:transform .2s,box-shadow .2s}
+.desafio-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(74,127,255,.1)}
+.desafio-icon{width:52px;height:52px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.desafio-title{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem}
+.desafio-text{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+.desafios-cta{text-align:center;margin-top:3rem}
+.desafios-cta p{font-size:1.1rem;font-weight:600;color:var(--text-dark);margin-bottom:1rem}
+
+/* LOGOS */
+#logos{background:var(--bg-light);padding:60px 5%}
+.logos-header{text-align:center;margin-bottom:2.5rem}
+.logos-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;max-width:1000px;margin:0 auto}
+.logo-chip{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.65rem 1.4rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;color:var(--text-mid)}
+
+/* MÉTRICAS */
+#metricas{background:var(--electric);padding:80px 5%}
+.metricas-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.metricas-kpis{display:grid;grid-template-columns:1fr;gap:2rem}
+.kpi-item{border-left:4px solid rgba(255,255,255,.3);padding-left:1.5rem}
+.kpi-num{font-family:'DM Sans',sans-serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;color:#fff;line-height:1}
+.kpi-label{font-size:1rem;color:rgba(255,255,255,.75);margin-top:.35rem}
+.metricas-tagline{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.6);margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.15)}
+.metricas-tagline span{color:#fff}
+
+/* IA */
+#ia{background:var(--bg-white)}
+.ia-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.ia-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(74,127,255,.08);border:1px solid rgba(74,127,255,.2);border-radius:20px;padding:.35rem .9rem;font-size:.8rem;font-weight:600;color:var(--bright);margin-bottom:1.25rem}
+.ia-screens{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.ia-screen{background:var(--bg-light);border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.ia-screen.big{grid-column:1/-1}
+.ia-screen-header{background:var(--night);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem}
+.ia-screen-dot{width:8px;height:8px;border-radius:50%}
+.ia-screen-body{padding:1rem}
+.ia-chat-msg{background:#fff;border-radius:8px;padding:.6rem .8rem;font-size:.75rem;color:var(--text-mid);margin-bottom:.5rem;border:1px solid var(--border)}
+.ia-chat-msg.ai{background:var(--electric);color:#fff;border:none}
+.ia-insight{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.5rem}
+.ia-insight-icon{width:20px;height:20px;background:var(--bright);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.ia-insight-text{font-size:.72rem;color:var(--text-mid);line-height:1.4}
+
+/* FUNCIONALIDADES */
+#funcionalidades{background:var(--bg-light)}
+.func-tabs-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem;border-bottom:2px solid var(--border)}
+.func-tab-btn{padding:.7rem 1.4rem;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s}
+.func-tab-btn.active{color:var(--bright);border-bottom-color:var(--bright)}
+.func-panel{display:none}
+.func-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.func-subtabs{display:flex;flex-direction:column;gap:.75rem}
+.func-subtab{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.25rem;cursor:pointer;transition:all .2s;text-align:left}
+.func-subtab.active{border-color:var(--bright);background:rgba(74,127,255,.04)}
+.func-subtab-title{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.func-subtab-icon{width:28px;height:28px;background:var(--bg-light);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.func-subtab.active .func-subtab-icon{background:var(--bright)}
+.func-subtab.active .func-subtab-icon svg{stroke:#fff}
+.func-subtab-desc{font-size:.83rem;color:var(--text-muted);line-height:1.5;display:none}
+.func-subtab.active .func-subtab-desc{display:block}
+.func-subtab-quote{margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border);display:none}
+.func-subtab.active .func-subtab-quote{display:block}
+.func-subtab-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:.83rem;color:var(--text-mid);line-height:1.5;margin-bottom:.4rem}
+.func-subtab-quote span{font-size:.75rem;color:var(--text-muted);font-weight:600}
+.func-preview{position:sticky;top:100px}
+.func-preview-screen{background:var(--night);border-radius:16px;overflow:hidden;border:1px solid rgba(74,127,255,.2);box-shadow:0 16px 48px rgba(0,0,0,.15)}
+.func-preview-bar{background:#111B35;padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem}
+.func-preview-body{padding:1.25rem}
+
+/* DIFERENCIAIS */
+#diferenciais{background:var(--bg-white)}
+.dif-header{text-align:center;max-width:580px;margin:0 auto 3rem}
+.dif-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.dif-card{background:var(--bg-light);border-radius:14px;padding:1.5rem;text-align:center}
+.dif-card-icon{width:52px;height:52px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.dif-card-title{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;color:var(--text-dark);margin-bottom:.35rem}
+.dif-card-text{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+
+/* RESULTADO */
+#resultado{background:var(--deep);padding:80px 5%}
+.resultado-inner{max-width:900px;margin:0 auto;text-align:center}
+.resultado-num{font-family:'DM Sans',sans-serif;font-size:clamp(4rem,10vw,7rem);font-weight:800;color:var(--bright);line-height:1}
+.resultado-label{font-family:'DM Sans',sans-serif;font-size:1.25rem;font-weight:600;color:rgba(255,255,255,.6);margin-top:.5rem;margin-bottom:2.5rem}
+.resultado-quote blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:#fff;line-height:1.6;margin-bottom:1.5rem;max-width:700px;margin-left:auto;margin-right:auto}
+.resultado-author{display:inline-flex;align-items:center;gap:.75rem}
+.resultado-avatar{width:46px;height:46px;border-radius:50%;background:var(--electric);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0}
+.resultado-name{text-align:left}
+.resultado-name strong{display:block;font-size:.9rem;color:#fff}
+.resultado-name span{font-size:.8rem;color:rgba(255,255,255,.5)}
+
+/* PRODUTOS */
+#produtos{background:var(--bg-white)}
+.produtos-header{text-align:center;max-width:580px;margin:0 auto 3rem}
+.produtos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.produto-card{border:1.5px solid var(--border);border-radius:18px;padding:2rem;transition:border-color .2s,box-shadow .2s}
+.produto-card:hover{border-color:var(--bright);box-shadow:0 8px 32px rgba(74,127,255,.1)}
+.produto-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.produto-icon svg{width:28px;height:28px;fill:#fff}
+.produto-title{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem}
+.produto-text{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+.produto-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.1rem;font-size:.85rem;font-weight:600;color:var(--bright);text-decoration:none;transition:gap .2s}
+.produto-link:hover{gap:.7rem}
+
+/* CTA FINAL */
+#cta-final{background:var(--electric);padding:80px 5%}
+.cta-final-inner{max-width:700px;margin:0 auto;text-align:center}
+.cta-final-inner h2{font-family:'DM Sans',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:#fff;margin-bottom:1rem}
+.cta-final-inner p{font-size:1.05rem;color:rgba(255,255,255,.8);margin-bottom:2rem}
+.btn-cta-white{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2rem;background:#fff;border-radius:12px;font-size:1rem;font-weight:700;color:var(--electric);text-decoration:none;transition:all .2s}
+.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+/* FOOTER */
+footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}
+.footer-brand p{font-size:.85rem;line-height:1.7;margin-top:.75rem;max-width:240px}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-col ul a{font-size:.83rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-copy{font-size:.8rem}
+.footer-logo-text{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;color:#fff}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .dif-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr 1fr}
+  .footer-grid .footer-brand{grid-column:1/-1}
+}
+@media(max-width:768px){
+  .nav-links,.nav-actions{display:none}
+  .nav-hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-mockup{display:none}
+  .contato-inner,.case-inner,.metricas-inner,.ia-inner{grid-template-columns:1fr}
+  .desafios-grid{grid-template-columns:1fr 1fr}
+  .func-panel.active{grid-template-columns:1fr}
+  .func-preview{display:none}
+  .dif-grid{grid-template-columns:1fr 1fr}
+  .produtos-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .desafios-grid,.dif-grid,.case-metrics{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Menu principal">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Clinix System — página inicial">
+      <img src="assets/logo/logo-app.png" alt="" width="36" height="36" aria-hidden="true">
+      <span class="nav-logo-text">Clinix System</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#funcionalidades">Soluções</a></li>
+      <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="#produtos">Planos</a></li>
+      <li><a href="#ia">IA</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn-ghost">Área do Cliente</a>
+      <a href="#contato" class="btn-nav-cta">Assine agora</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-label="Apresentação">
+  <div class="hero-bg-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="hero-badge-dot" aria-hidden="true"></span> Software líder em odontologia</div>
+      <h1 class="hero-title">O melhor software odontológico para <span>clínicas</span> e consultórios</h1>
+      <p class="hero-sub">Organize sua clínica, aumente o faturamento e fidelize pacientes com automação inteligente e IA integrada.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          Fale com um especialista
+        </a>
+        <a href="#funcionalidades" class="btn-secondary">Ver como funciona</a>
+      </div>
+      <div class="hero-stats" aria-label="Números do Clinix System">
+        <div>
+          <div class="hero-stat-num">+100 mil</div>
+          <div class="hero-stat-label">usuários ativos</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">+R$10 bi</div>
+          <div class="hero-stat-label">faturados pelas clínicas</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">+20 mil</div>
+          <div class="hero-stat-label">clínicas confiam</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-mockup" aria-hidden="true">
+      <div class="mockup-window">
+        <div class="mockup-bar">
+          <div class="mockup-dot" style="background:#ff5f56"></div>
+          <div class="mockup-dot" style="background:#ffbd2e"></div>
+          <div class="mockup-dot" style="background:#27c93f"></div>
+          <span class="mockup-title">Clinix System — Dashboard</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-header">
+            <h4>Visão Geral — Junho 2025</h4>
+            <span class="mockup-chip">● Ao vivo</span>
+          </div>
+          <div class="mockup-grid">
+            <div class="mockup-card">
+              <div class="mockup-card-label">Agendamentos</div>
+              <div class="mockup-card-val">248 <span>↑18%</span></div>
+            </div>
+            <div class="mockup-card">
+              <div class="mockup-card-label">Receita Mensal</div>
+              <div class="mockup-card-val">R$84k <span>↑32%</span></div>
+            </div>
+            <div class="mockup-card">
+              <div class="mockup-card-label">Novos Pacientes</div>
+              <div class="mockup-card-val">63 <span>↑9%</span></div>
+            </div>
+            <div class="mockup-card">
+              <div class="mockup-card-label">Taxa de Retorno</div>
+              <div class="mockup-card-val">78% <span>↑5%</span></div>
+            </div>
+          </div>
+          <div class="mockup-chart">
+            <div class="chart-bars">
+              <div class="chart-bar" style="height:40%"></div>
+              <div class="chart-bar" style="height:55%"></div>
+              <div class="chart-bar" style="height:45%"></div>
+              <div class="chart-bar" style="height:70%"></div>
+              <div class="chart-bar" style="height:60%"></div>
+              <div class="chart-bar active" style="height:90%"></div>
+              <div class="chart-bar" style="height:75%"></div>
+            </div>
+          </div>
+          <div class="mockup-list">
+            <div class="mockup-list-item">
+              <div class="mockup-avatar">AM</div>
+              <span class="mockup-item-name">Ana Martins — Implante</span>
+              <span class="mockup-item-status status-ok">Confirmado</span>
+            </div>
+            <div class="mockup-list-item">
+              <div class="mockup-avatar">JS</div>
+              <span class="mockup-item-name">João Silva — Ortodontia</span>
+              <span class="mockup-item-status status-pend">Pendente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section id="contato" class="section">
+  <div class="section-inner">
+    <div class="contato-inner">
+      <div class="contato-visual">
+        <svg width="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de profissional usando o sistema">
+          <rect width="400" height="300" rx="20" fill="#F4F6FF"/>
+          <rect x="40" y="30" width="320" height="220" rx="14" fill="#fff" stroke="#E5E7EB" stroke-width="1.5"/>
+          <rect x="60" y="55" width="100" height="10" rx="5" fill="#4A7FFF" opacity=".8"/>
+          <rect x="60" y="75" width="160" height="7" rx="3.5" fill="#E5E7EB"/>
+          <circle cx="90" cy="140" r="30" fill="#EEF1FB" stroke="#E5E7EB"/>
+          <circle cx="90" cy="132" r="12" fill="#2A4DB5"/>
+          <path d="M65 175c0-13.8 11.2-25 25-25h0c13.8 0 25 11.2 25 25" fill="#2A4DB5" opacity=".4"/>
+          <rect x="135" y="120" width="180" height="10" rx="5" fill="#374151"/>
+          <rect x="135" y="138" width="130" height="7" rx="3.5" fill="#9CA3AF"/>
+          <rect x="60" y="185" width="110" height="36" rx="10" fill="#4A7FFF"/>
+          <rect x="77" y="199" width="76" height="8" rx="4" fill="white" opacity=".9"/>
+          <rect x="185" y="185" width="145" height="16" rx="5" fill="#E5E7EB"/>
+          <rect x="185" y="207" width="110" height="10" rx="5" fill="#F4F6FF" stroke="#E5E7EB" stroke-width="1"/>
+        </svg>
+        <div class="trust-items">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="18" height="18" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            Implementação em até 10 dias
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="18" height="18" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            Suporte especializado Seg–Sex
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="18" height="18" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            Usuários ilimitados no plano
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Comece agora</h3>
+        <p>Preencha seus dados e um especialista entrará em contato para uma demonstração gratuita.</p>
+        <form id="lead-form" action="#" method="POST">
+          <input type="hidden" name="utm_source" id="h_utm_source">
+          <input type="hidden" name="utm_medium" id="h_utm_medium">
+          <input type="hidden" name="utm_campaign" id="h_utm_campaign">
+          <input type="hidden" name="utm_content" id="h_utm_content">
+          <input type="hidden" name="fbclid" id="h_fbclid">
+          <div class="form-group">
+            <label for="f-nome">Nome completo</label>
+            <input type="text" id="f-nome" name="nome" placeholder="Dr. João Silva" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="f-tel">WhatsApp</label>
+            <input type="tel" id="f-tel" name="telefone" placeholder="(11) 99999-9999" required autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="f-clinica">Nome da clínica</label>
+            <input type="text" id="f-clinica" name="clinica" placeholder="Clínica Odontológica..." autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="f-esp">Especialidade principal</label>
+            <select id="f-esp" name="especialidade">
+              <option value="">Selecione...</option>
+              <option>Clínica Geral</option>
+              <option>Ortodontia</option>
+              <option>Implantodontia</option>
+              <option>Estética Dental</option>
+              <option>Endodontia</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Falar com especialista →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE DE SUCESSO -->
+<section id="case" class="section">
+  <div class="section-inner">
+    <div class="case-inner">
+      <div>
+        <span class="section-tag">Case de sucesso</span>
+        <h2 class="section-title">Odontologia Integrada — referência em inovação</h2>
+        <p style="color:var(--text-muted);line-height:1.7;margin-bottom:1rem">A Dra. Camila Assis transformou sua clínica com o Clinix System. Em 6 meses, automatizou toda a operação e multiplicou o faturamento.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">+50%</div>
+            <div class="case-metric-label">no faturamento</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">100%</div>
+            <div class="case-metric-label">paper free</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">3x</div>
+            <div class="case-metric-label">mais agendamentos</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">−60%</div>
+            <div class="case-metric-label">inadimplência</div>
+          </div>
+        </div>
+        <div class="case-quote">
+          <blockquote>"O Clinix System mudou completamente a forma como gerencio minha clínica. Hoje tenho controle total de tudo, do agendamento ao financeiro."</blockquote>
+          <div class="case-author">
+            <div class="case-avatar" aria-hidden="true">CA</div>
+            <div>
+              <div class="case-author-name">Dra. Camila Assis</div>
+              <div class="case-author-role">Odontologia Integrada — São Paulo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <svg width="100%" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interface do sistema Clinix">
+          <rect width="480" height="400" rx="20" fill="#F4F6FF"/>
+          <rect x="30" y="30" width="420" height="340" rx="16" fill="#fff" stroke="#E5E7EB" stroke-width="1.5"/>
+          <rect x="50" y="55" width="100" height="10" rx="5" fill="#4A7FFF" opacity=".8"/>
+          <rect x="50" y="75" width="160" height="7" rx="3.5" fill="#E5E7EB"/>
+          <rect x="50" y="105" width="185" height="70" rx="10" fill="#F4F6FF" stroke="#E5E7EB"/>
+          <rect x="68" y="118" width="60" height="7" rx="3" fill="#6B7FA3"/>
+          <rect x="68" y="133" width="40" height="22" rx="4" fill="#4A7FFF"/>
+          <rect x="72" y="139" width="32" height="10" rx="2" fill="white" opacity=".8"/>
+          <rect x="255" y="105" width="185" height="70" rx="10" fill="#F4F6FF" stroke="#E5E7EB"/>
+          <rect x="273" y="118" width="60" height="7" rx="3" fill="#6B7FA3"/>
+          <rect x="273" y="133" width="40" height="22" rx="4" fill="#22c55e"/>
+          <rect x="277" y="139" width="32" height="10" rx="2" fill="white" opacity=".8"/>
+          <rect x="50" y="195" width="380" height="130" rx="10" fill="#F4F6FF" stroke="#E5E7EB"/>
+          <rect x="68" y="210" width="80" height="7" rx="3" fill="#374151"/>
+          <rect x="68" y="228" width="340" height="2" fill="#E5E7EB"/>
+          <circle cx="80" cy="254" r="12" fill="#2A4DB5"/>
+          <rect x="100" y="247" width="120" height="6" rx="3" fill="#374151"/>
+          <rect x="230" y="247" width="60" height="6" rx="3" fill="#E5E7EB"/>
+          <circle cx="80" cy="290" r="12" fill="#1A2E8A"/>
+          <rect x="100" y="283" width="100" height="6" rx="3" fill="#374151"/>
+          <rect x="210" y="283" width="80" height="6" rx="3" fill="#E5E7EB"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESAFIOS -->
+<section id="desafios" class="section">
+  <div class="section-inner">
+    <div class="desafios-header">
+      <span class="section-tag">Desafios que resolvemos</span>
+      <h2 class="section-title section-title-center">Os principais problemas da sua clínica hoje</h2>
+      <p class="section-sub section-sub-center">Identificamos os gargalos mais comuns e desenvolvemos soluções específicas para cada um deles.</p>
+    </div>
+    <div class="desafios-grid">
+      <div class="desafio-card reveal">
+        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="desafio-title">Agenda desorganizada</div>
+        <div class="desafio-text">Horários duplicados, faltas sem aviso e dificuldade para encaixar emergências prejudicam sua produtividade.</div>
+      </div>
+      <div class="desafio-card reveal">
+        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="desafio-title">Engajamento baixo</div>
+        <div class="desafio-text">Pacientes que somem após a primeira consulta e não retornam para tratamentos contínuos ou manutenção.</div>
+      </div>
+      <div class="desafio-card reveal">
+        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="desafio-title">Inadimplência alta</div>
+        <div class="desafio-text">Dificuldade em cobrar, acompanhar parcelas em aberto e oferecer formas de pagamento flexíveis ao paciente.</div>
+      </div>
+      <div class="desafio-card reveal">
+        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="desafio-title">Falta de indicadores</div>
+        <div class="desafio-text">Sem dados confiáveis, você toma decisões no escuro e não consegue identificar onde está perdendo receita.</div>
+      </div>
+      <div class="desafio-card reveal">
+        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="desafio-title">Prontuários em papel</div>
+        <div class="desafio-text">Fichas físicas se perdem, ocupam espaço e dificultam o acesso rápido ao histórico do paciente.</div>
+      </div>
+      <div class="desafio-card reveal">
+        <div class="desafio-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="desafio-title">Controle operacional</div>
+        <div class="desafio-text">Gestão de estoque, materiais e equipe feita de forma manual, gerando desperdício e retrabalho.</div>
+      </div>
+    </div>
+    <div class="desafios-cta">
+      <p>Quer resolver esses problemas de uma vez?</p>
+      <a href="#contato" class="btn-primary">Fale com um especialista</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section id="logos">
+  <div class="logos-header">
+    <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted)">Contamos com a confiança de grandes clínicas</p>
+  </div>
+  <div class="logos-grid">
+    <div class="logo-chip">Odonto Hub</div>
+    <div class="logo-chip">Espaço Sorriso</div>
+    <div class="logo-chip">Clínica Debastiane</div>
+    <div class="logo-chip">OralCenter</div>
+    <div class="logo-chip">Ortoestética</div>
+    <div class="logo-chip">Oral Fácil</div>
+    <div class="logo-chip">Instituto Oral</div>
+    <div class="logo-chip">Clínica San</div>
+    <div class="logo-chip">Matizzes Odonto</div>
+    <div class="logo-chip">Hoffmann Odontologia</div>
+    <div class="logo-chip">BCX Odontologia</div>
+    <div class="logo-chip">Santé Centro Clínico</div>
+  </div>
+</section>
+
+<!-- MÉTRICAS -->
+<section id="metricas" aria-label="Números do Clinix System">
+  <div class="metricas-inner">
+    <div>
+      <div class="metricas-kpis">
+        <div class="kpi-item reveal">
+          <div class="kpi-num">+100 mil</div>
+          <div class="kpi-label">usuários ativos no sistema</div>
+        </div>
+        <div class="kpi-item reveal">
+          <div class="kpi-num">+R$10 bi</div>
+          <div class="kpi-label">faturados pelas clínicas clientes</div>
+        </div>
+        <div class="kpi-item reveal">
+          <div class="kpi-num">100M</div>
+          <div class="kpi-label">de pacientes atendidos</div>
+        </div>
+      </div>
+      <div class="metricas-tagline">Temos a confiança de <span>+20 mil clínicas</span> odontológicas em todo o Brasil</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center">
+      <svg viewBox="0 0 360 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:360px" role="img" aria-label="Mapa do Brasil">
+        <path d="M180 38 L216 48 L244 76 L272 86 L300 106 L318 134 L328 162 L322 190 L336 210 L330 238 L306 258 L286 288 L258 308 L230 328 L212 358 L194 376 L178 394 L164 380 L150 360 L136 340 L122 316 L102 296 L84 272 L70 248 L60 224 L56 200 L62 176 L52 152 L68 128 L88 108 L112 88 L140 66 L162 48 Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+        <circle cx="180" cy="190" r="9" fill="white" opacity=".95"/>
+        <circle cx="142" cy="142" r="5" fill="white" opacity=".6"/>
+        <circle cx="220" cy="160" r="5" fill="white" opacity=".6"/>
+        <circle cx="162" cy="248" r="5" fill="white" opacity=".6"/>
+        <circle cx="258" cy="218" r="5" fill="white" opacity=".6"/>
+        <circle cx="116" cy="218" r="4" fill="white" opacity=".4"/>
+        <circle cx="200" cy="288" r="4" fill="white" opacity=".4"/>
+        <circle cx="88" cy="178" r="4" fill="white" opacity=".4"/>
+        <text x="180" y="424" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="13" font-family="'Plus Jakarta Sans',sans-serif">Presente em todo o Brasil</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CLINIX IA -->
+<section id="ia" class="section">
+  <div class="section-inner">
+    <div class="ia-inner">
+      <div>
+        <div class="ia-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Inteligência Artificial
+        </div>
+        <h2 class="section-title">Clinix IA — desenvolvida para sua clínica <span style="color:var(--bright)">vender mais</span></h2>
+        <p class="section-sub">Nossa IA cruza dados de agenda, financeiro e pacientes para gerar insights personalizados e automatizar ações que aumentam sua receita.</p>
+        <ul style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.85rem;list-style:none" role="list">
+          <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--text-mid)">
+            <svg width="18" height="18" fill="none" stroke="var(--bright)" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Atendimento automático via WhatsApp 24h por dia
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--text-mid)">
+            <svg width="18" height="18" fill="none" stroke="var(--bright)" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Previsão de cancelamentos com antecedência de 48h
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--text-mid)">
+            <svg width="18" height="18" fill="none" stroke="var(--bright)" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Sugestões automáticas de tratamentos por perfil do paciente
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--text-mid)">
+            <svg width="18" height="18" fill="none" stroke="var(--bright)" stroke-width="2.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Relatórios inteligentes com insights acionáveis diários
+          </li>
+        </ul>
+        <a href="#contato" class="btn-primary" style="margin-top:2rem;display:inline-flex">Venda mais com a Clinix IA →</a>
+      </div>
+      <div class="ia-screens">
+        <div class="ia-screen big">
+          <div class="ia-screen-header">
+            <div class="ia-screen-dot" style="background:#ff5f56"></div>
+            <div class="ia-screen-dot" style="background:#ffbd2e"></div>
+            <div class="ia-screen-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="ia-screen-body">
+            <div style="font-size:.7rem;font-weight:700;color:var(--bright);margin-bottom:.75rem">Clinix IA — Atendimento Inteligente</div>
+            <div class="ia-chat-msg">Olá! Tenho interesse em tratamento de implante. Qual o valor?</div>
+            <div class="ia-chat-msg ai">Olá! Fico feliz em ajudar 😊 O implante na nossa clínica começa em R$1.800. Posso agendar uma avaliação gratuita para você essa semana?</div>
+            <div class="ia-chat-msg">Sim! Quarta ou quinta-feira seria ótimo.</div>
+            <div class="ia-chat-msg ai">Perfeito! Tenho quinta às 14h ou 16h disponíveis. Qual prefere? Confirmo pelo WhatsApp 😊</div>
+          </div>
+        </div>
+        <div class="ia-screen">
+          <div class="ia-screen-header">
+            <div class="ia-screen-dot" style="background:#ff5f56"></div>
+            <div class="ia-screen-dot" style="background:#ffbd2e"></div>
+          </div>
+          <div class="ia-screen-body">
+            <div style="font-size:.65rem;font-weight:700;color:var(--bright);margin-bottom:.5rem">Insights do Dia</div>
+            <div class="ia-insight">
+              <div class="ia-insight-icon" aria-hidden="true"><svg width="10" height="10" fill="white" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+              <div class="ia-insight-text">3 pacientes com retorno vencido há +30 dias</div>
+            </div>
+            <div class="ia-insight">
+              <div class="ia-insight-icon" aria-hidden="true"><svg width="10" height="10" fill="white" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+              <div class="ia-insight-text">Quinta tem 2 horários em risco de cancelamento</div>
+            </div>
+          </div>
+        </div>
+        <div class="ia-screen">
+          <div class="ia-screen-header">
+            <div class="ia-screen-dot" style="background:#ff5f56"></div>
+            <div class="ia-screen-dot" style="background:#ffbd2e"></div>
+          </div>
+          <div class="ia-screen-body">
+            <div style="font-size:.65rem;font-weight:700;color:var(--bright);margin-bottom:.5rem">Previsão de Receita</div>
+            <div style="display:flex;flex-direction:column;gap:.35rem">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:.65rem;color:var(--text-muted)">Esta semana</span>
+                <span style="font-size:.75rem;font-weight:700;color:var(--text-dark)">R$ 12.400</span>
+              </div>
+              <div style="height:4px;background:var(--border);border-radius:2px" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
+                <div style="height:4px;width:78%;background:var(--bright);border-radius:2px"></div>
+              </div>
+              <span style="font-size:.62rem;color:#22c55e;font-weight:600">↑ 22% vs semana anterior</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCIONALIDADES -->
+<section id="funcionalidades" class="section">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <span class="section-tag">Funcionalidades</span>
+      <h2 class="section-title section-title-center">Tudo que sua clínica precisa em um só lugar</h2>
+    </div>
+    <div class="func-tabs-nav" role="tablist" aria-label="Grupos de funcionalidades">
+      <button class="func-tab-btn active" data-tab="agenda" role="tab" aria-selected="true" aria-controls="tab-agenda">Gestão da Agenda</button>
+      <button class="func-tab-btn" data-tab="tratamento" role="tab" aria-selected="false" aria-controls="tab-tratamento">Gestão de Tratamento</button>
+      <button class="func-tab-btn" data-tab="financeiro" role="tab" aria-selected="false" aria-controls="tab-financeiro">Gestão Financeira</button>
+      <button class="func-tab-btn" data-tab="estrategico" role="tab" aria-selected="false" aria-controls="tab-estrategico">Gestão Estratégica</button>
+    </div>
+
+    <!-- AGENDA -->
+    <div class="func-panel active" id="tab-agenda" role="tabpanel">
+      <div class="func-subtabs">
+        <div class="func-subtab active">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+            Alertas de Retorno
+          </div>
+          <div class="func-subtab-desc">Notifique automaticamente pacientes que precisam retornar, via WhatsApp ou SMS, com mensagens personalizadas.</div>
+          <div class="func-subtab-quote">
+            <p>"O alerta de retorno mudou tudo. Minha taxa de recomparecimento subiu 40% no primeiro mês."</p>
+            <span>Dra. Andreza Sgrott — Clínica Sgrott</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+            Confirmação via WhatsApp
+          </div>
+          <div class="func-subtab-desc">Mensagens automáticas de confirmação enviadas 24h e 2h antes, reduzindo faltas em até 70%.</div>
+          <div class="func-subtab-quote">
+            <p>"Praticamente zeramos as faltas. O sistema confirma sozinho e o paciente responde em segundos."</p>
+            <span>Dra. Bruna — Casa do Dente</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            Relatórios Especializados
+          </div>
+          <div class="func-subtab-desc">Mais de 50 relatórios: ocupação, produtividade por dentista, horários de pico e muito mais.</div>
+          <div class="func-subtab-quote">
+            <p>"Em 5 minutos consigo ver tudo que aconteceu na semana. Relatórios práticos e visuais."</p>
+            <span>Dr. Júlio — Hoffmann Odontologia</span>
+          </div>
+        </div>
+      </div>
+      <div class="func-preview">
+        <div class="func-preview-screen" aria-label="Preview da agenda">
+          <div class="func-preview-bar" aria-hidden="true">
+            <div class="mockup-dot" style="background:#ff5f56"></div>
+            <div class="mockup-dot" style="background:#ffbd2e"></div>
+            <div class="mockup-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="func-preview-body">
+            <div style="font-size:.75rem;font-weight:700;color:#fff;margin-bottom:1rem">Agenda — Hoje</div>
+            <div style="display:flex;flex-direction:column;gap:.5rem">
+              <div style="display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.04);border-radius:8px;padding:.7rem">
+                <div style="width:40px;font-size:.65rem;color:var(--bright);font-weight:700">08:00</div>
+                <div style="flex:1;font-size:.72rem;color:rgba(255,255,255,.8)">Ana Lima — Limpeza</div>
+                <span style="font-size:.6rem;background:rgba(34,197,94,.2);color:#22c55e;padding:.2rem .5rem;border-radius:4px;font-weight:600">✓</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:.75rem;background:rgba(74,127,255,.08);border:1px solid rgba(74,127,255,.2);border-radius:8px;padding:.7rem">
+                <div style="width:40px;font-size:.65rem;color:var(--bright);font-weight:700">09:30</div>
+                <div style="flex:1;font-size:.72rem;color:rgba(255,255,255,.8)">Pedro Costa — Implante</div>
+                <span style="font-size:.6rem;background:rgba(74,127,255,.2);color:var(--bright);padding:.2rem .5rem;border-radius:4px;font-weight:600">Atendendo</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.04);border-radius:8px;padding:.7rem">
+                <div style="width:40px;font-size:.65rem;color:var(--bright);font-weight:700">11:00</div>
+                <div style="flex:1;font-size:.72rem;color:rgba(255,255,255,.8)">Maria Santos — Ortodontia</div>
+                <span style="font-size:.6rem;background:rgba(250,204,21,.15);color:#fbbf24;padding:.2rem .5rem;border-radius:4px;font-weight:600">Aguardando</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.04);border-radius:8px;padding:.7rem">
+                <div style="width:40px;font-size:.65rem;color:var(--bright);font-weight:700">14:00</div>
+                <div style="flex:1;font-size:.72rem;color:rgba(255,255,255,.8)">Carlos Melo — Clareamento</div>
+                <span style="font-size:.6rem;background:rgba(255,255,255,.1);color:rgba(255,255,255,.5);padding:.2rem .5rem;border-radius:4px;font-weight:600">Confirmado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRATAMENTO -->
+    <div class="func-panel" id="tab-tratamento" role="tabpanel">
+      <div class="func-subtabs">
+        <div class="func-subtab active">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            Prontuário Digital
+          </div>
+          <div class="func-subtab-desc">Prontuário 100% digital com histórico completo, imagens, radiografias e evoluções por sessão.</div>
+          <div class="func-subtab-quote">
+            <p>"Centralizar tudo no prontuário digital foi transformador. Acho qualquer informação em segundos."</p>
+            <span>Dra. Beatriz — BCX Odontologia</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+            Fichas por Especialidade
+          </div>
+          <div class="func-subtab-desc">Fichas específicas para ortodontia, implante, endodontia, estética e mais 10 especialidades.</div>
+          <div class="func-subtab-quote">
+            <p>"As fichas personalizadas por especialidade facilitaram demais o atendimento diário."</p>
+            <span>Dra. Bianca — Santé Centro Clínico</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+            Anamnese e Assinatura Digital
+          </div>
+          <div class="func-subtab-desc">Envie anamnese por link antes da consulta. Paciente assina digitalmente com validade jurídica.</div>
+          <div class="func-subtab-quote">
+            <p>"O paciente já chega com a anamnese preenchida. Economizamos 15 minutos por atendimento."</p>
+            <span>Dra. Priscila — Clínica Priscila</span>
+          </div>
+        </div>
+      </div>
+      <div class="func-preview">
+        <div class="func-preview-screen" aria-label="Preview do prontuário">
+          <div class="func-preview-bar" aria-hidden="true">
+            <div class="mockup-dot" style="background:#ff5f56"></div>
+            <div class="mockup-dot" style="background:#ffbd2e"></div>
+            <div class="mockup-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="func-preview-body">
+            <div style="font-size:.75rem;font-weight:700;color:#fff;margin-bottom:.5rem">Prontuário — Maria Santos</div>
+            <div style="font-size:.65rem;color:var(--text-muted);margin-bottom:1rem">Última consulta: 28/05/2025</div>
+            <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.75rem;margin-bottom:.5rem">
+              <div style="font-size:.65rem;font-weight:700;color:var(--bright);margin-bottom:.4rem">Evolução 28/05</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.7);line-height:1.5">Instalação de braquetes na arcada superior. Paciente sem queixas. Retorno em 30 dias.</div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.75rem">
+              <div style="font-size:.65rem;font-weight:700;color:var(--bright);margin-bottom:.4rem">Evolução 28/04</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.7);line-height:1.5">Moldagem e planejamento ortodôntico. Aprovado tratamento 24 meses.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINANCEIRO -->
+    <div class="func-panel" id="tab-financeiro" role="tabpanel">
+      <div class="func-subtabs">
+        <div class="func-subtab active">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            Receitas e Pagamentos
+          </div>
+          <div class="func-subtab-desc">Controle total: cartão, Pix, boleto e parcelamentos. Baixa automática com integração bancária.</div>
+          <div class="func-subtab-quote">
+            <p>"Meu faturamento aumentou +300% depois que passei a controlar tudo pelo Clinix System."</p>
+            <span>Dra. Camila — Harmoniklinic</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            Fluxo Financeiro Previsível
+          </div>
+          <div class="func-subtab-desc">Projeção de receitas com base nos tratamentos em andamento. Saiba exatamente o que vai entrar.</div>
+          <div class="func-subtab-quote">
+            <p>"Com a previsão de fluxo consegui planejar a expansão da clínica com muito mais segurança."</p>
+            <span>Dra. Gabriela — Guiesi Odonto</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></div>
+            Relatórios e SPC Brasil
+          </div>
+          <div class="func-subtab-desc">Relatórios de inadimplência e integração com SPC Brasil para proteção do crédito da clínica.</div>
+          <div class="func-subtab-quote">
+            <p>"Reduzi a inadimplência em 60% com os alertas automáticos e a integração com o SPC."</p>
+            <span>Dr. Cristiano — Guiesi Odonto</span>
+          </div>
+        </div>
+      </div>
+      <div class="func-preview">
+        <div class="func-preview-screen" aria-label="Preview financeiro">
+          <div class="func-preview-bar" aria-hidden="true">
+            <div class="mockup-dot" style="background:#ff5f56"></div>
+            <div class="mockup-dot" style="background:#ffbd2e"></div>
+            <div class="mockup-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="func-preview-body">
+            <div style="font-size:.75rem;font-weight:700;color:#fff;margin-bottom:1rem">Financeiro — Junho</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.75rem">
+              <div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:.65rem">
+                <div style="font-size:.6rem;color:rgba(255,255,255,.5);margin-bottom:.2rem">Receitas</div>
+                <div style="font-size:.95rem;font-weight:800;color:#22c55e">R$84.200</div>
+              </div>
+              <div style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:.65rem">
+                <div style="font-size:.6rem;color:rgba(255,255,255,.5);margin-bottom:.2rem">Despesas</div>
+                <div style="font-size:.95rem;font-weight:800;color:#ef4444">R$31.500</div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.65rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+                <span style="font-size:.65rem;color:rgba(255,255,255,.5)">Lucro Líquido</span>
+                <span style="font-size:.8rem;font-weight:800;color:var(--bright)">R$52.700</span>
+              </div>
+              <div style="height:4px;background:rgba(255,255,255,.1);border-radius:2px">
+                <div style="height:4px;width:63%;background:var(--bright);border-radius:2px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTRATÉGICO -->
+    <div class="func-panel" id="tab-estrategico" role="tabpanel">
+      <div class="func-subtabs">
+        <div class="func-subtab active">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+            Dashboard Analítico
+          </div>
+          <div class="func-subtab-desc">Painel executivo com todos os KPIs em tempo real. Visualize o que mais importa de forma clara.</div>
+          <div class="func-subtab-quote">
+            <p>"Abro o dashboard toda manhã e em 2 minutos já sei exatamente como está minha clínica."</p>
+            <span>Dra. Alana — AZ Odontologia</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            50+ Relatórios Especializados
+          </div>
+          <div class="func-subtab-desc">Relatórios por dentista, especialidade, convênio, período e paciente. Exportação em PDF e Excel.</div>
+          <div class="func-subtab-quote">
+            <p>"Não tem relatório que o Clinix não gere. Uso todos os dias para tomar decisões mais inteligentes."</p>
+            <span>Dra. Maira — Hoffmann Odontologia</span>
+          </div>
+        </div>
+        <div class="func-subtab">
+          <div class="func-subtab-title">
+            <div class="func-subtab-icon" aria-hidden="true"><svg width="14" height="14" fill="none" stroke="#6B7FA3" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+            Controle de Estoque
+          </div>
+          <div class="func-subtab-desc">Gerencie materiais odontológicos, alertas de reposição automáticos e controle de validade.</div>
+          <div class="func-subtab-quote">
+            <p>"Acabou o estresse com falta de material. O sistema avisa antes de zerar e facilita o pedido."</p>
+            <span>Dra. Andreza — Clínica Sgrott</span>
+          </div>
+        </div>
+      </div>
+      <div class="func-preview">
+        <div class="func-preview-screen" aria-label="Preview do dashboard estratégico">
+          <div class="func-preview-bar" aria-hidden="true">
+            <div class="mockup-dot" style="background:#ff5f56"></div>
+            <div class="mockup-dot" style="background:#ffbd2e"></div>
+            <div class="mockup-dot" style="background:#27c93f"></div>
+          </div>
+          <div class="func-preview-body">
+            <div style="font-size:.75rem;font-weight:700;color:#fff;margin-bottom:1rem">Dashboard Estratégico</div>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem">
+              <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.65rem">
+                <div style="font-size:.6rem;color:var(--text-muted)">NPS Pacientes</div>
+                <div style="font-size:1.1rem;font-weight:800;color:#22c55e">92</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.65rem">
+                <div style="font-size:.6rem;color:var(--text-muted)">Ticket Médio</div>
+                <div style="font-size:1.1rem;font-weight:800;color:var(--bright)">R$340</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.65rem">
+                <div style="font-size:.6rem;color:var(--text-muted)">Ocup. Agenda</div>
+                <div style="font-size:1.1rem;font-weight:800;color:#fff">87%</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:.65rem">
+                <div style="font-size:.6rem;color:var(--text-muted)">Conversão Lead</div>
+                <div style="font-size:1.1rem;font-weight:800;color:#fbbf24">64%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais" class="section">
+  <div class="section-inner">
+    <div class="dif-header">
+      <span class="section-tag">Por que Clinix</span>
+      <h2 class="section-title section-title-center">Diferenciais que só o software líder pode oferecer</h2>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="dif-card-title">App do Paciente</div>
+        <div class="dif-card-text">Gratuito para seus pacientes. Consultas, histórico e documentos na palma da mão.</div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="dif-card-title">Implantação em 10 dias</div>
+        <div class="dif-card-text">Migre seus dados e comece a usar em até 10 dias úteis com suporte dedicado.</div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="dif-card-title">Segurança e LGPD</div>
+        <div class="dif-card-text">Dados criptografados, backup automático diário e total conformidade com a LGPD.</div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="dif-card-title">Usuários ilimitados</div>
+        <div class="dif-card-text">Adicione toda sua equipe sem custo adicional. Sem limitação de dentistas ou recepcionistas.</div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <div class="dif-card-title">Suporte especializado</div>
+        <div class="dif-card-text">Atendimento por especialistas em odontologia e tecnologia, não apenas técnicos genéricos.</div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div class="dif-card-title">Treinamentos gratuitos</div>
+        <div class="dif-card-text">Acesso ilimitado à plataforma de treinamentos com vídeos, tutoriais e webinars ao vivo.</div>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-card-icon"><svg width="26" height="26" fill="none" stroke="#4A7FFF" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="dif-card-title">API e Integrações</div>
+        <div class="dif-card-text">Integre com WhatsApp, convênios, gateways de pagamento e ferramentas de marketing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADO -->
+<section id="resultado">
+  <div class="resultado-inner">
+    <div class="resultado-num reveal">+400%</div>
+    <div class="resultado-label">no faturamento de nossas clínicas clientes</div>
+    <div class="resultado-quote">
+      <blockquote>"Antes do Clinix System eu mal conseguia acompanhar a agenda. Hoje tenho uma operação profissional, dados em tempo real e minha clínica triplicou de tamanho."</blockquote>
+      <div class="resultado-author">
+        <div class="resultado-avatar" aria-hidden="true">AA</div>
+        <div class="resultado-name">
+          <strong>Dra. Alana Azevedo</strong>
+          <span>AZ Odontologia — Curitiba, PR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos" class="section">
+  <div class="section-inner">
+    <div class="produtos-header">
+      <span class="section-tag">Ecossistema Clinix</span>
+      <h2 class="section-title section-title-center">Soluções complementares para sua clínica crescer</h2>
+    </div>
+    <div class="produtos-grid">
+      <div class="produto-card">
+        <div class="produto-icon" style="background:var(--electric)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="produto-title">Clinix IA</div>
+        <div class="produto-text">Inteligência artificial que cruza dados da sua clínica e gera ações automáticas para aumentar receita e fidelizar pacientes.</div>
+        <a href="#ia" class="produto-link">Conhecer a IA <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="produto-card">
+        <div class="produto-icon" style="background:#22c55e">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="produto-title">Clinix Pay</div>
+        <div class="produto-text">Gestão financeira integrada com maquininha, link de pagamento, Pix automático e controle de inadimplência em tempo real.</div>
+        <a href="#contato" class="produto-link">Saiba mais <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="produto-card">
+        <div class="produto-icon" style="background:var(--royal)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <div class="produto-title">Certificado Digital</div>
+        <div class="produto-text">Emissão de certificado digital integrada ao sistema. Assine prontuários e documentos com validade jurídica completa.</div>
+        <a href="#contato" class="produto-link">Saiba mais <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-final-inner">
+    <h2>Quer ter uma clínica mais eficiente e lucrativa?</h2>
+    <p>Fale com um especialista agora e descubra como o Clinix System pode transformar sua clínica.</p>
+    <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn-cta-white">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.115 1.524 5.843L.057 23.5l5.81-1.524A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.002-1.368l-.359-.213-3.451.905.921-3.36-.234-.375A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Fale com um especialista
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">
+          <img src="assets/logo/logo-app.png" alt="" width="36" height="36" style="border-radius:8px" aria-hidden="true" loading="lazy">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;color:#fff">Clinix System</span>
+        </div>
+        <p>Fundada em 2017, a Clinix System tem como propósito transformar a gestão de clínicas odontológicas por meio de tecnologia acessível e inteligente.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produtos</h4>
+        <ul>
+          <li><a href="#">Software Odontológico</a></li>
+          <li><a href="#">Software para Estética</a></li>
+          <li><a href="#">Software para Franquias</a></li>
+          <li><a href="#">Clinix Pay</a></li>
+          <li><a href="#contato">Fale com vendas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">Central de Ajuda</a></li>
+          <li><a href="#">Fale com Suporte</a></li>
+          <li><a href="#">Ouvidoria</a></li>
+          <li><a href="#">Status do Sistema</a></li>
+        </ul>
+        <p style="font-size:.75rem;margin-top:.75rem;line-height:1.6">Seg–Sex: 8h às 18h<br>Sábado: 8h às 12h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Transparência</h4>
+        <ul>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Política de Segurança</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">LGPD</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Treinamentos</a></li>
+          <li><a href="#">Trabalhe conosco</a></li>
+          <li><a href="#">Indique e ganhe</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2017–2025 Clinix System — Todos os direitos reservados</span>
+      <div style="display:flex;gap:1rem">
+        <a href="#" style="color:rgba(255,255,255,.4);font-size:.8rem;text-decoration:none">App Android</a>
+        <a href="#" style="color:rgba(255,255,255,.4);font-size:.8rem;text-decoration:none">App iOS</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="wa-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.115 1.524 5.843L.057 23.5l5.81-1.524A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.002-1.368l-.359-.213-3.451.905.921-3.36-.234-.375A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
+
+<script>
+// UTM capture
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','ttclid','gclid'].forEach(function(k){
+    var v=p.get(k);if(v)sessionStorage.setItem(k,v);
+  });
+})();
+
+// NAV scroll
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>60);
+},{passive:true});
+
+// Funcionalidades tabs
+document.querySelectorAll('.func-tab-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.func-tab-btn').forEach(function(b){
+      b.classList.remove('active');b.setAttribute('aria-selected','false');
+    });
+    document.querySelectorAll('.func-panel').forEach(function(p){p.classList.remove('active');});
+    btn.classList.add('active');btn.setAttribute('aria-selected','true');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Funcionalidades subtabs
+document.querySelectorAll('.func-subtab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    var panel=tab.closest('.func-panel');
+    panel.querySelectorAll('.func-subtab').forEach(function(t){t.classList.remove('active');});
+    tab.classList.add('active');
+  });
+});
+
+// Reveal on scroll
+var revealObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}
+  });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
+
+// Form UTM
+document.getElementById('lead-form').addEventListener('submit',function(){
+  ['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(function(k){
+    var el=document.getElementById('h_'+k);
+    if(el)el.value=sessionStorage.getItem(k)||'';
+  });
+});
+</script>
+</body>
+</html>
