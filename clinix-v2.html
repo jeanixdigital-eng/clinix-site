@@ -163,8 +163,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 .logos-track:hover{animation-play-state:paused}
 @keyframes logos-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .logo-item{flex-shrink:0;padding:0 2.75rem;display:flex;align-items:center;justify-content:center}
-.logo-item img{height:38px;width:auto;max-width:140px;filter:grayscale(100%);opacity:.55;transition:filter .35s,opacity .35s,transform .35s;object-fit:contain}
-.logo-item img:hover{filter:grayscale(0%);opacity:1;transform:scale(1.06)}
+.logo-item img{height:44px;width:auto;max-width:160px;opacity:.85;transition:opacity .3s,transform .3s;object-fit:contain}
+.logo-item img:hover{opacity:1;transform:scale(1.07)}
+.logo-item img[src*="dental-center"]{height:56px;max-width:180px}
 @media(prefers-reduced-motion:reduce){.logos-track{animation:none}}
 
 /* MÉTRICAS */
@@ -792,19 +793,21 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
   <div class="logos-overflow">
     <div class="logos-track">
       <!-- Set original -->
-      <div class="logo-item"><img src="assets/logos/dental-center.png" alt="Dental Center" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item"><img src="assets/logos/sorridents.png" alt="Sorridents Clínicas Odontológicas" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item"><img src="assets/logos/oral-sin.png" alt="Oral Sin Implantes" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item"><img src="assets/logos/odonto-company.png" alt="Odonto Company" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item"><img src="assets/logos/odontoclinic.png" alt="Odontoclinic" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item"><img src="assets/logos/sorrifacil.png" alt="Sorrifácil" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item"><img src="assets/logos/dental-center.png" alt="Dental Center" loading="lazy"></div>
+      <div class="logo-item"><img src="assets/logos/sorridents.png" alt="Sorridents Clínicas Odontológicas" loading="lazy"></div>
+      <div class="logo-item"><img src="assets/logos/oral-sin.png" alt="Oral Sin Implantes" loading="lazy"></div>
+      <div class="logo-item"><img src="assets/logos/odonto-company.png" alt="Odonto Company" loading="lazy"></div>
+      <div class="logo-item"><img src="assets/logos/odontoclinic.png" alt="Odontoclinic" loading="lazy"></div>
+      <div class="logo-item"><img src="assets/logos/sorrifacil.png" alt="Sorrifácil" loading="lazy"></div>
+      <div class="logo-item"><img src="assets/logos/paraiso-odonto.png" alt="Paraíso Odonto" loading="lazy"></div>
       <!-- Set duplicado para loop infinito -->
-      <div class="logo-item" aria-hidden="true"><img src="assets/logos/dental-center.png" alt="" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item" aria-hidden="true"><img src="assets/logos/sorridents.png" alt="" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item" aria-hidden="true"><img src="assets/logos/oral-sin.png" alt="" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item" aria-hidden="true"><img src="assets/logos/odonto-company.png" alt="" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item" aria-hidden="true"><img src="assets/logos/odontoclinic.png" alt="" loading="lazy" width="140" height="38"></div>
-      <div class="logo-item" aria-hidden="true"><img src="assets/logos/sorrifacil.png" alt="" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/dental-center.png" alt="" loading="lazy"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/sorridents.png" alt="" loading="lazy"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/oral-sin.png" alt="" loading="lazy"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/odonto-company.png" alt="" loading="lazy"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/odontoclinic.png" alt="" loading="lazy"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/sorrifacil.png" alt="" loading="lazy"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/paraiso-odonto.png" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
