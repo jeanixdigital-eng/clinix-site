@@ -153,10 +153,19 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text-dark);backgroun
 .btn-cta-card:hover{background:#2A4DB5}
 
 /* LOGOS */
-#logos{background:var(--bg-light);padding:60px 5%}
-.logos-header{text-align:center;margin-bottom:2.5rem}
-.logos-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;max-width:1000px;margin:0 auto}
-.logo-chip{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.65rem 1.4rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;color:var(--text-mid)}
+#logos{background:var(--bg-light);padding:52px 0;overflow:hidden}
+.logos-header{text-align:center;margin-bottom:2rem;padding:0 5%}
+.logos-overflow{overflow:hidden;position:relative}
+.logos-overflow::before,.logos-overflow::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.logos-overflow::before{left:0;background:linear-gradient(to right,var(--bg-light),transparent)}
+.logos-overflow::after{right:0;background:linear-gradient(to left,var(--bg-light),transparent)}
+.logos-track{display:flex;align-items:center;width:max-content;animation:logos-scroll 28s linear infinite}
+.logos-track:hover{animation-play-state:paused}
+@keyframes logos-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.logo-item{flex-shrink:0;padding:0 2.75rem;display:flex;align-items:center;justify-content:center}
+.logo-item img{height:38px;width:auto;max-width:140px;filter:grayscale(100%);opacity:.55;transition:filter .35s,opacity .35s,transform .35s;object-fit:contain}
+.logo-item img:hover{filter:grayscale(0%);opacity:1;transform:scale(1.06)}
+@media(prefers-reduced-motion:reduce){.logos-track{animation:none}}
 
 /* MÉTRICAS */
 #metricas{background:var(--electric);padding:80px 5%}
@@ -776,23 +785,27 @@ footer{background:var(--night);padding:64px 5% 32px;color:rgba(255,255,255,.6)}
 </section>
 
 <!-- LOGOS -->
-<section id="logos">
+<section id="logos" aria-label="Clínicas que confiam no Clinix System">
   <div class="logos-header">
-    <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted)">Contamos com a confiança de grandes clínicas</p>
+    <p style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted)">Contamos com a confiança de grandes clínicas</p>
   </div>
-  <div class="logos-grid">
-    <div class="logo-chip">Odonto Hub</div>
-    <div class="logo-chip">Espaço Sorriso</div>
-    <div class="logo-chip">Clínica Debastiane</div>
-    <div class="logo-chip">OralCenter</div>
-    <div class="logo-chip">Ortoestética</div>
-    <div class="logo-chip">Oral Fácil</div>
-    <div class="logo-chip">Instituto Oral</div>
-    <div class="logo-chip">Clínica San</div>
-    <div class="logo-chip">Matizzes Odonto</div>
-    <div class="logo-chip">Hoffmann Odontologia</div>
-    <div class="logo-chip">BCX Odontologia</div>
-    <div class="logo-chip">Santé Centro Clínico</div>
+  <div class="logos-overflow">
+    <div class="logos-track">
+      <!-- Set original -->
+      <div class="logo-item"><img src="assets/logos/dental-center.png" alt="Dental Center" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item"><img src="assets/logos/sorridents.png" alt="Sorridents Clínicas Odontológicas" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item"><img src="assets/logos/oral-sin.png" alt="Oral Sin Implantes" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item"><img src="assets/logos/odonto-company.png" alt="Odonto Company" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item"><img src="assets/logos/odontoclinic.png" alt="Odontoclinic" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item"><img src="assets/logos/sorrifacil.png" alt="Sorrifácil" loading="lazy" width="140" height="38"></div>
+      <!-- Set duplicado para loop infinito -->
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/dental-center.png" alt="" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/sorridents.png" alt="" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/oral-sin.png" alt="" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/odonto-company.png" alt="" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/odontoclinic.png" alt="" loading="lazy" width="140" height="38"></div>
+      <div class="logo-item" aria-hidden="true"><img src="assets/logos/sorrifacil.png" alt="" loading="lazy" width="140" height="38"></div>
+    </div>
   </div>
 </section>
 
